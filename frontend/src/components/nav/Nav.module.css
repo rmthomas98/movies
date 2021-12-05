@@ -1,0 +1,30 @@
+.container {
+  background: linear-gradient(to right, #ee0978a1, #ff6a00a1);
+  padding: 20px 30px;
+}
+
+.contentContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+  margin: auto;
+}
+
+.title {
+  font-weight: 500;
+  font-size: 130%;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  width: 200px;
+  background: var(--background);
+  cursor: pointer;
+  padding: 10px;
+  font-size: 60%;
+  color: var(--gray);
+  font-weight: 700;
+  border-radius: 15px;
+}

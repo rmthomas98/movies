@@ -1,0 +1,41 @@
+.container {
+  height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-image: linear-gradient(#0000009c, #0000009c),
+    url("./assets/images/bg.jpg");
+  background-size: cover;
+  background-position: center;
+  padding: 30px;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 350%;
+}
+
+.description {
+  max-width: 1000px;
+  text-align: center;
+  padding-top: 15px;
+  padding-bottom: 30px;
+  line-height: 1.5;
+}
+
+.btn {
+  font-size: 90%;
+  font-weight: 500;
+  padding: 18px 50px;
+  border-radius: 20px;
+  background: linear-gradient(to right, var(--pink), var(--orange));
+  color: #fff;
+  text-decoration: none;
+  transition: 0.3s all;
+}
+
+.btn:hover {
+  box-shadow: -5px 0px 20px #ee09789d, 5px 0px 20px #ff6a009d;
+  transform: scale(0.98);
+}

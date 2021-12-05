@@ -1,0 +1,33 @@
+.container {
+  background: #000;
+  padding: 30px;
+}
+
+.contentContainer {
+  max-width: 1400px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.socialIcon {
+  transition: 0.2s all;
+}
+
+.socialIcon:hover {
+  color: var(--orange);
+}
+
+.copyright {
+  font-size: 70%;
+  font-weight: 400;
+  color: var(--gray);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.footerTitle {
+  font-weight: 600;
+}

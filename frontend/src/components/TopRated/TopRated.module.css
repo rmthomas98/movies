@@ -1,0 +1,44 @@
+.container {
+  padding: 30px;
+  border-bottom: 1px solid #ffffff28;
+}
+
+.movieContainer {
+  border-radius: 12px;
+  max-width: 220px;
+  overflow: hidden;
+  height: 100%;
+  min-height: 320px;
+  max-height: 320px;
+  cursor: pointer;
+  box-shadow: 0px 8px 30px #00000098;
+  margin: 40px 0px;
+}
+
+.movieContainer::after {
+  transition: 0.3s all;
+  height: 100%;
+  width: 100%;
+  background: #00000042;
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.movieContainer:hover::after {
+  background: transparent;
+}
+
+.movieContainer:hover .image {
+  transform: scale(1);
+}
+
+.image {
+  transform: scale(1.05);
+  transition: 0.3s all;
+  width: 220px;
+  min-height: 320px;
+  max-height: 320px;
+}
