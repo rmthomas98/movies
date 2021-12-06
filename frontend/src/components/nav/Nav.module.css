@@ -1,5 +1,5 @@
 .container {
-  background: linear-gradient(to right, #ee0978a1, #ff6a00a1);
+  background: linear-gradient(to right, #d31027af, #ea384daf);
   padding: 20px 30px;
 }
 
@@ -14,6 +14,8 @@
 .title {
   font-weight: 500;
   font-size: 130%;
+  color: #fff;
+  text-decoration: none;
 }
 
 .search {

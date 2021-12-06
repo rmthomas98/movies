@@ -7,7 +7,7 @@ const Footer = () => {
     <div className={styles.container}>
       <div className={styles.contentContainer}>
         <div style={{ display: "flex", alignItems: "center" }}>
-          <Film style={{ marginRight: 10 }} color="#ff6a00" />
+          <Film style={{ marginRight: 10 }} color="#d31027" />
           <p className={styles.footerTitle}>MovieExplorer</p>
         </div>
         <p className={styles.copyright}>&#169; Copyright MovieExplorer 2021</p>

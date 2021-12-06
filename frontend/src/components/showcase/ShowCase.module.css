@@ -29,13 +29,13 @@
   font-weight: 500;
   padding: 18px 50px;
   border-radius: 20px;
-  background: linear-gradient(to right, var(--pink), var(--orange));
+  background: linear-gradient(to right, var(--red), var(--light-red));
   color: #fff;
   text-decoration: none;
   transition: 0.3s all;
 }
 
 .btn:hover {
-  box-shadow: -5px 0px 20px #ee09789d, 5px 0px 20px #ff6a009d;
+  box-shadow: -5px 0px 20px #d31027af, 5px 0px 20px #ea384daf;
   transform: scale(0.98);
 }

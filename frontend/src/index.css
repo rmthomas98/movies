@@ -6,9 +6,10 @@
 
 :root {
   --background: #212129;
-  --gray: #646b80;
-  --pink: #ee0979;
-  --orange: #ff6a00;
+  --dark-background: #1b1b22;
+  --gray: #ffffff9f;
+  --red: #d31027;
+  --light-red: #ea384d;
 }
 
 body {
@@ -27,11 +28,11 @@ body {
 
 .swiper-button-prev,
 .swiper-button-next {
-  background: var(--gray);
+  background: #494e5c;
   border-radius: 50%;
   height: 40px !important;
   width: 40px !important;
-  opacity: 0.8;
+  /* opacity: 0.8; */
 }
 
 .swiper-button-prev:after,

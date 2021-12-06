@@ -1,0 +1,48 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  border-radius: 15px;
+  background: #ffffff0c;
+  border: 1px solid #ffffff28;
+}
+
+.navTitle {
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 90%;
+}
+
+.navTitle:first-of-type {
+  padding-bottom: 10px;
+}
+
+.navTitle:nth-of-type(2) {
+  padding-top: 40px;
+  padding-bottom: 10px;
+}
+
+.navLink,
+.navLinkActive {
+  color: var(--gray);
+  text-decoration: none;
+  font-size: 80%;
+  font-weight: 300;
+  padding-bottom: 5px;
+  transition: 0.2s all;
+}
+
+.navLinkActive {
+  color: var(--light-red);
+  font-weight: 500;
+  transform: translateX(8px);
+}
+
+.navLink:last-of-type {
+  padding-bottom: 0px;
+}
+
+.navLink:hover {
+  color: #fff;
+  transform: translateX(8px);
+}
