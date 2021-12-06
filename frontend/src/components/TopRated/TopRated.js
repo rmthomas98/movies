@@ -30,15 +30,15 @@ const TopRated = () => {
   };
 
   useEffect(() => {
-    const getIds = async () => {
-      const response = await axios.request(options);
-      console.log(response.data.slice(0, 30));
-      const idsList = response.data.slice(0, 30).map((element) => {
-        return element.id.split("/")[2];
-      });
-      setIds(idsList.join("&ids="));
-    };
-    getIds();
+      const getIds = async () => {
+        const response = await axios.request(options);
+        console.log(response.data.slice(0, 30));
+        const idsList = response.data.slice(0, 30).map((element) => {
+          return element.id.split("/")[2];
+        });
+        setIds(idsList.join("&ids="));
+      };
+      getIds();
   }, []);
 
   useEffect(() => {

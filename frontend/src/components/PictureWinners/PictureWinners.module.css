@@ -4,11 +4,11 @@
 
 .movieContainer {
   border-radius: 12px;
-  max-width: 220px;
+  max-width: 200px;
   overflow: hidden;
   height: 100%;
-  min-height: 320px;
-  max-height: 320px;
+  min-height: 300px;
+  max-height: 300px;
   cursor: pointer;
   box-shadow: 0px 8px 30px #00000098;
   margin: 40px 0px;
@@ -38,7 +38,7 @@
 .image {
   transform: scale(1.05);
   transition: 0.3s all;
-  width: 220px;
-  min-height: 320px;
-  max-height: 320px;
+  width: 200px;
+  min-height: 300px;
+  max-height: 300px;
 }

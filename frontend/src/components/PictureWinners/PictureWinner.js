@@ -30,15 +30,18 @@ const PictureWinner = () => {
   };
 
   useEffect(() => {
-    const getIds = async () => {
-      const response = await axios.request(options);
-      console.log(response.data.slice(0, 30));
-      const idsList = response.data.slice(0, 30).map((element) => {
-        return element.split("/")[2];
-      });
-      setIds(idsList.join("&ids="));
-    };
-    getIds();
+    setTimeout(() => {
+
+      const getIds = async () => {
+        const response = await axios.request(options);
+        console.log(response.data.slice(0, 30));
+        const idsList = response.data.slice(0, 30).map((element) => {
+          return element.split("/")[2];
+        });
+        setIds(idsList.join("&ids="));
+      };
+      getIds();
+    }, 1000)
   }, []);
 
   useEffect(() => {
@@ -57,7 +60,7 @@ const PictureWinner = () => {
   return (
     <div className={styles.container}>
       <p className="sub-header">Best Picture Winners</p>
-      <Swiper slidesPerView={"auto"} navigation={true} spaceBetween={50}>
+      <Swiper slidesPerView={"auto"} navigation={true} spaceBetween={50} >
         {data
           ? data.map((element, index) => {
               return (
