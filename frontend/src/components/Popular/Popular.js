@@ -37,6 +37,7 @@ const Popular = () => {
         (element) => element.split("/")[2]
       );
       setPopularTitles(popluarMovieTitles.splice(0, 30).join("&ids="));
+      console.log(popluarMovieTitles)
     };
     getPopularMovies();
   }, []);
