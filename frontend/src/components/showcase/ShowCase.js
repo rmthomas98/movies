@@ -15,7 +15,7 @@ const ShowCase = () => {
         Find the perfect movie for any occasion. Look through different genres,
         read reviews, see what the most popular movies are, and much more.
       </p>
-      <Link to="/explore" className={styles.btn}>
+      <Link to="explore/popular" className={styles.btn}>
         Explore Movies
       </Link>
     </div>

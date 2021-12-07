@@ -6,7 +6,7 @@ const ExploreNav = () => {
   return (
     <div className={styles.container}>
       <p className={styles.navTitle}>Top Lists</p>
-      <NavLink to="/" className={(data) => data.isActive ? styles.navLinkActive : styles.navLink}>Most Popular</NavLink>
+      <NavLink to="/explore/popular" className={(data) => data.isActive ? styles.navLinkActive : styles.navLink}>Most Popular</NavLink>
       <NavLink to="/" className={(data) => data.isActive ? styles.navLinkActive : styles.navLink}>Top Rated</NavLink>
       <NavLink to="/" className={(data) => data.isActive ? styles.navLinkActive : styles.navLink}>Best Picture Winners</NavLink>
       <NavLink to="/" className={(data) => data.isActive ? styles.navLinkActive : styles.navLink}>Coming Soon</NavLink>
