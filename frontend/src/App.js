@@ -7,6 +7,7 @@ import ExplorePopular from "./components/ExplorePopular/ExplorePopular";
 import ExploreTopRated from "./components/ExploreTopRated/ExploreTopRated";
 import ExplorePictureWinners from "./components/ExplorePictureWinners/ExplorePictureWinners";
 import ExploreComingSoon from "./components/ExploreComingSoon/ExploreComingSoon";
+import ExploreGenre from "./components/ExploreGenre/ExploreGenre";
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
           <Route path="top-rated" element={<ExploreTopRated />} />
           <Route path="picture-winners" element={<ExplorePictureWinners />} />
           <Route path="coming-soon" element={<ExploreComingSoon />} />
+          <Route path="genre" element={<ExploreGenre />} />
         </Route>
       </Routes>
       <Footer />

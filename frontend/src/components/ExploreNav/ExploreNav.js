@@ -40,7 +40,8 @@ const ExploreNav = () => {
       </NavLink>
       <p className={styles.navTitle}>Genres</p>
       <NavLink
-        to="/"
+        to="genre"
+        state={{genre: 'action'}}
         className={(data) =>
           data.isActive ? styles.navLinkActive : styles.navLink
         }
