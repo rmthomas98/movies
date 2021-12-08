@@ -20,7 +20,7 @@ const App = () => {
           <Route path="top-rated" element={<ExploreTopRated />} />
           <Route path="picture-winners" element={<ExplorePictureWinners />} />
           <Route path="coming-soon" element={<ExploreComingSoon />} />
-          <Route path="genre" element={<ExploreGenre />} />
+          <Route path="genre/:type" element={<ExploreGenre />} />
         </Route>
       </Routes>
       <Footer />

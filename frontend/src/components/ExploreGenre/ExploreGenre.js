@@ -39,7 +39,7 @@ const ExploreGenre = () => {
       console.log(idsList)
     }
     getIds()
-  },[])
+  },[location])
 
   useEffect(() => {
     if (!ids) return

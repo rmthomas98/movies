@@ -40,7 +40,7 @@ const ExploreNav = () => {
       </NavLink>
       <p className={styles.navTitle}>Genres</p>
       <NavLink
-        to="genre"
+        to="genre/action"
         state={{genre: 'action'}}
         className={(data) =>
           data.isActive ? styles.navLinkActive : styles.navLink
@@ -49,7 +49,8 @@ const ExploreNav = () => {
         Action
       </NavLink>
       <NavLink
-        to="/"
+        to="genre/animation"
+        state={{genre: 'animation'}}
         className={(data) =>
           data.isActive ? styles.navLinkActive : styles.navLink
         }
@@ -57,7 +58,8 @@ const ExploreNav = () => {
         Animation
       </NavLink>
       <NavLink
-        to="/"
+        to="genre/biography"
+        state={{genre: 'biography'}}
         className={(data) =>
           data.isActive ? styles.navLinkActive : styles.navLink
         }
@@ -65,7 +67,8 @@ const ExploreNav = () => {
         Biography
       </NavLink>
       <NavLink
-        to="/"
+        to="genre/comedy"
+        state={{genre: 'comedy'}}
         className={(data) =>
           data.isActive ? styles.navLinkActive : styles.navLink
         }
@@ -73,7 +76,8 @@ const ExploreNav = () => {
         Comedy
       </NavLink>
       <NavLink
-        to="/"
+        to="genre/crime"
+        state={{genre: 'crime'}}
         className={(data) =>
           data.isActive ? styles.navLinkActive : styles.navLink
         }
@@ -81,7 +85,8 @@ const ExploreNav = () => {
         Crime
       </NavLink>
       <NavLink
-        to="/"
+        to="genre/documentary"
+        state={{genre: 'documentary'}}
         className={(data) =>
           data.isActive ? styles.navLinkActive : styles.navLink
         }
@@ -89,7 +94,8 @@ const ExploreNav = () => {
         Documentary
       </NavLink>
       <NavLink
-        to="/"
+        to="genre/drama"
+        state={{genre: 'drama'}}
         className={(data) =>
           data.isActive ? styles.navLinkActive : styles.navLink
         }
@@ -97,7 +103,8 @@ const ExploreNav = () => {
         Drama
       </NavLink>
       <NavLink
-        to="/"
+        to="genre/family"
+        state={{genre: 'family'}}
         className={(data) =>
           data.isActive ? styles.navLinkActive : styles.navLink
         }
@@ -105,7 +112,8 @@ const ExploreNav = () => {
         Family
       </NavLink>
       <NavLink
-        to="/"
+        to="genre/fantasy"
+        state={{genre: 'fantasy'}}
         className={(data) =>
           data.isActive ? styles.navLinkActive : styles.navLink
         }
@@ -113,7 +121,8 @@ const ExploreNav = () => {
         Fantasy
       </NavLink>
       <NavLink
-        to="/"
+        to="genre/film-noir"
+        state={{genre: 'film-noir'}}
         className={(data) =>
           data.isActive ? styles.navLinkActive : styles.navLink
         }
@@ -121,7 +130,8 @@ const ExploreNav = () => {
         Film Noir
       </NavLink>
       <NavLink
-        to="/"
+        to="genre/history"
+        state={{genre: 'history'}}
         className={(data) =>
           data.isActive ? styles.navLinkActive : styles.navLink
         }
@@ -129,7 +139,8 @@ const ExploreNav = () => {
         History
       </NavLink>
       <NavLink
-        to="/"
+        to="genre/horror"
+        state={{genre: 'horror'}}
         className={(data) =>
           data.isActive ? styles.navLinkActive : styles.navLink
         }
@@ -137,7 +148,8 @@ const ExploreNav = () => {
         Horror
       </NavLink>
       <NavLink
-        to="/"
+        to="genre/music"
+        state={{genre: 'music'}}
         className={(data) =>
           data.isActive ? styles.navLinkActive : styles.navLink
         }
@@ -145,7 +157,8 @@ const ExploreNav = () => {
         Music
       </NavLink>
       <NavLink
-        to="/"
+        to="genre/musical"
+        state={{genre: 'musical'}}
         className={(data) =>
           data.isActive ? styles.navLinkActive : styles.navLink
         }
@@ -153,7 +166,8 @@ const ExploreNav = () => {
         Musical
       </NavLink>
       <NavLink
-        to="/"
+        to="genre/mystery"
+        state={{genre: 'mystery'}}
         className={(data) =>
           data.isActive ? styles.navLinkActive : styles.navLink
         }
@@ -161,7 +175,8 @@ const ExploreNav = () => {
         Mystery
       </NavLink>
       <NavLink
-        to="/"
+        to="genre/romance"
+        state={{genre: 'romance'}}
         className={(data) =>
           data.isActive ? styles.navLinkActive : styles.navLink
         }
@@ -169,7 +184,8 @@ const ExploreNav = () => {
         Romance
       </NavLink>
       <NavLink
-        to="/"
+        to="genre/sci-fi"
+        state={{genre: 'sci-fi'}}
         className={(data) =>
           data.isActive ? styles.navLinkActive : styles.navLink
         }
@@ -177,7 +193,8 @@ const ExploreNav = () => {
         Science Fiction
       </NavLink>
       <NavLink
-        to="/"
+        to="genre/sport"
+        state={{genre: 'sport'}}
         className={(data) =>
           data.isActive ? styles.navLinkActive : styles.navLink
         }
@@ -185,7 +202,8 @@ const ExploreNav = () => {
         Sport
       </NavLink>
       <NavLink
-        to="/"
+        to="genre/thriller"
+        state={{genre: 'thriller'}}
         className={(data) =>
           data.isActive ? styles.navLinkActive : styles.navLink
         }
@@ -193,7 +211,8 @@ const ExploreNav = () => {
         Thriller
       </NavLink>
       <NavLink
-        to="/"
+        to="genre/war"
+        state={{genre: 'war'}}
         className={(data) =>
           data.isActive ? styles.navLinkActive : styles.navLink
         }
@@ -201,7 +220,8 @@ const ExploreNav = () => {
         War
       </NavLink>
       <NavLink
-        to="/"
+        to="genre/western"
+        state={{genre: 'western'}}
         className={(data) =>
           data.isActive ? styles.navLinkActive : styles.navLink
         }
