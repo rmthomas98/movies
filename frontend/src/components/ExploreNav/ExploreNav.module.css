@@ -5,6 +5,10 @@
   border-radius: 15px;
   background: #ffffff0c;
   border: 1px solid #ffffff28;
+  min-width: 250px;
+  max-height: 800px;
+  position: sticky;
+  top: 30px;
 }
 
 .navTitle {
