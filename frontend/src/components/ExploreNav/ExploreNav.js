@@ -23,7 +23,7 @@ const ExploreNav = () => {
         Top Rated
       </NavLink>
       <NavLink
-        to="/"
+        to="picture-winners"
         className={(data) =>
           data.isActive ? styles.navLinkActive : styles.navLink
         }
@@ -31,7 +31,7 @@ const ExploreNav = () => {
         Best Picture Winners
       </NavLink>
       <NavLink
-        to="/"
+        to="coming-soon"
         className={(data) =>
           data.isActive ? styles.navLinkActive : styles.navLink
         }

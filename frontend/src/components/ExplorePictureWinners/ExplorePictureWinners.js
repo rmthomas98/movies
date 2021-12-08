@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
-import styles from "./ExploreTopRated.module.css";
+import styles from "./ExplorePictureWinners.module.css";
 import axios from "axios";
 
 const options = {
   method: "GET",
-  url: "https://imdb8.p.rapidapi.com/title/get-top-rated-movies",
+  url: "https://imdb8.p.rapidapi.com/title/get-best-picture-winners",
   headers: {
     "x-rapidapi-host": "imdb8.p.rapidapi.com",
     "x-rapidapi-key": "c61810c65cmshac8bf485bd410e3p19fd92jsn1e5912056987",
   },
 };
 
-const ExploreTopRated = () => {
+const ExplorePictureWinners = () => {
   const [ids, setIds] = useState();
   const [data, setData] = useState();
 
@@ -26,15 +26,10 @@ const ExploreTopRated = () => {
   };
 
   useEffect(() => {
-    window.scrollTo(0,0)
-  },[])
-
-  useEffect(() => {
     const getIds = async () => {
       const response = await axios.request(options);
-      console.log(response.data.slice(0, 30));
       const idsList = response.data.slice(0, 50).map((element) => {
-        return element.id.split("/")[2];
+        return element.split("/")[2];
       });
       setIds(idsList.join("&ids="));
     };
@@ -46,7 +41,7 @@ const ExploreTopRated = () => {
     const getMetaData = async () => {
       const response = await axios.request(metaDataOptions);
       const dataList = Object.values(response.data).map((element) => {
-        return [element.ratings.rating, element.popularity.image.url];
+        return element.popularity.image.url;
       });
       console.log(dataList);
       setData(dataList);
@@ -60,11 +55,7 @@ const ExploreTopRated = () => {
         ? data.map((element) => {
             return (
               <div className={styles.movieContainer}>
-                <img
-                  src={element[1]}
-                  className={styles.image}
-                  alt="movie cover"
-                />
+                <img src={element} className={styles.image} alt="movie cover" />
               </div>
             );
           })
@@ -73,4 +64,4 @@ const ExploreTopRated = () => {
   );
 };
 
-export default ExploreTopRated;
+export default ExplorePictureWinners;

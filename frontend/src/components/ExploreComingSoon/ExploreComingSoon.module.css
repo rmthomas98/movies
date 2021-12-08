@@ -1,0 +1,49 @@
+.container {
+  padding-left: 30px;
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 25px;
+  place-items: center;
+}
+
+.movieContainer {
+  border-radius: 12px;
+  max-width: 200px;
+  min-width: 200px;
+  overflow: hidden;
+  height: 100%;
+  min-height: 300px;
+  max-height: 300px;
+  cursor: pointer;
+  box-shadow: 0px 8px 30px #00000098;
+  position: relative;
+}
+
+.movieContainer::after {
+  transition: 0.3s all;
+  height: 100%;
+  width: 100%;
+  background: #00000042;
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.movieContainer:hover::after {
+  background: transparent;
+}
+
+.movieContainer:hover .image {
+  transform: scale(1);
+}
+
+.image {
+  transform: scale(1.05);
+  transition: 0.3s all;
+  width: 200px;
+  min-height: 300px;
+  max-height: 300px;
+}

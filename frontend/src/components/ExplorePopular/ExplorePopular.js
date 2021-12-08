@@ -27,6 +27,10 @@ const ExplorePopular = () => {
   };
 
   useEffect(() => {
+    window.scrollTo(0,0)
+  },[])
+
+  useEffect(() => {
     const getPopularMovies = async () => {
       const response = await axios.request(titleOptions);
       const popluarMovieTitles = response.data.map(
