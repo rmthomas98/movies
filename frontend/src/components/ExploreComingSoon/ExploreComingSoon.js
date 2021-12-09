@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import styles from "./ExploreComingSoon.module.css";
 import axios from "axios";
+import Loader from "react-loader-spinner";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 const options = {
   method: "GET",
@@ -27,6 +29,10 @@ const ExploreComingSoon = () => {
   };
 
   useEffect(() => {
+    window.scrollTo(0,0)
+  },[])
+
+  useEffect(() => {
     const getIds = async () => {
       const response = await axios.request(options);
       const idsList = response.data.slice(0, 50).map((element) => {
@@ -51,7 +57,20 @@ const ExploreComingSoon = () => {
     getMetaData();
   }, [ids]);
 
-  if (!ids) return <div className={styles.container}>{}</div>;
+  if (!data) {
+    return (
+      <div className={styles.loaderContainer}>
+        <Loader
+          className={styles.loader}
+          type="Puff"
+          color="#ea384d"
+          height={75}
+          width={75}
+          timeout={3000} //3 secs
+        />
+      </div>
+    );
+  }
 
   return (
     <div className={styles.container}>

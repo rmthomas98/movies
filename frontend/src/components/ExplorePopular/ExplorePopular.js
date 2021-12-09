@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import styles from "./ExplorePopular.module.css";
 import axios from "axios";
+import Loader from "react-loader-spinner";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 const titleOptions = {
   method: "GET",
@@ -50,6 +52,21 @@ const ExplorePopular = () => {
     };
     getPopularImages();
   }, [popularTitles]);
+
+  if (!data) {
+    return (
+      <div className={styles.loaderContainer}>
+      <Loader
+      className={styles.loader}
+      type="Puff"
+      color="#ea384d"
+      height={75}
+      width={75}
+      timeout={3000} //3 secs
+    />
+    </div>
+    )
+  }
 
   return (
     <div className={styles.container}>

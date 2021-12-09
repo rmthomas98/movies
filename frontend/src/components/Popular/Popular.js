@@ -5,6 +5,7 @@ import SwiperCore, { Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react/swiper-react.js";
 import "swiper/swiper.min.css";
 import "swiper/swiper-bundle.min.css";
+import SwiperLoader from "../SwiperLoader/SwiperLoader";
 
 const titleOptions = {
   method: "GET",
@@ -37,7 +38,7 @@ const Popular = () => {
         (element) => element.split("/")[2]
       );
       setPopularTitles(popluarMovieTitles.splice(0, 30).join("&ids="));
-      console.log(popluarMovieTitles)
+      console.log(popluarMovieTitles);
     };
     getPopularMovies();
   }, []);
@@ -53,6 +54,8 @@ const Popular = () => {
 
   console.log(data);
   SwiperCore.use([Navigation]);
+
+  if (!data) return <SwiperLoader />;
 
   return (
     <div className={styles.container}>

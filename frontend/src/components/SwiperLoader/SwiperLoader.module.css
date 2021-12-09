@@ -1,0 +1,44 @@
+.container {
+  border-bottom: 1px solid #ffffff28;
+  padding: 30px;
+}
+
+.movieContainer {
+  border-radius: 12px;
+  max-width: 200px;
+  overflow: hidden;
+  height: 100%;
+  min-height: 300px;
+  max-height: 300px;
+  cursor: pointer;
+  box-shadow: 0px 8px 30px #00000071;
+  margin: 40px 0px;
+  position: relative;
+  min-width: 200px;
+  position: relative;
+}
+
+.movieContainer::after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  transform: translateX(-100%);
+  background-image: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0,
+    rgba(255, 255, 255, 0.05) 40%,
+    rgba(255, 255, 255, 0.08) 60%,
+    rgba(255, 255, 255, 0)
+  );
+  animation: shimmer 3s infinite;
+  -webkit-animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}

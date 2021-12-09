@@ -5,6 +5,7 @@ import SwiperCore, { Navigation, FreeMode } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react/swiper-react.js";
 import "swiper/swiper.min.css";
 import "swiper/swiper-bundle.min.css";
+import SwiperLoader from "../SwiperLoader/SwiperLoader";
 
 const options = {
   method: "GET",
@@ -56,6 +57,8 @@ const PictureWinner = () => {
     };
     getMetaData();
   }, [ids]);
+
+  if (!data) return <SwiperLoader />;
 
   return (
     <div className={styles.container}>
