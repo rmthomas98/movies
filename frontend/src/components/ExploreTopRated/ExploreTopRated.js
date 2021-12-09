@@ -65,7 +65,6 @@ const ExploreTopRated = () => {
       color="#ea384d"
       height={75}
       width={75}
-      timeout={3000} //3 secs
     />
     </div>
     )

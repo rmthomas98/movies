@@ -8,6 +8,7 @@ import ExploreTopRated from "./components/ExploreTopRated/ExploreTopRated";
 import ExplorePictureWinners from "./components/ExplorePictureWinners/ExplorePictureWinners";
 import ExploreComingSoon from "./components/ExploreComingSoon/ExploreComingSoon";
 import ExploreGenre from "./components/ExploreGenre/ExploreGenre";
+import MovieViewer from "./components/MovieViewer/MovieViewer";
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
           <Route path="coming-soon" element={<ExploreComingSoon />} />
           <Route path="genre/:type" element={<ExploreGenre />} />
         </Route>
+        <Route path="movie-viewer" element={<MovieViewer />} />
       </Routes>
       <Footer />
     </div>

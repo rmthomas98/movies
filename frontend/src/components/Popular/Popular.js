@@ -6,6 +6,7 @@ import { Swiper, SwiperSlide } from "swiper/react/swiper-react.js";
 import "swiper/swiper.min.css";
 import "swiper/swiper-bundle.min.css";
 import SwiperLoader from "../SwiperLoader/SwiperLoader";
+import {Link} from 'react-router-dom';
 
 const titleOptions = {
   method: "GET",
