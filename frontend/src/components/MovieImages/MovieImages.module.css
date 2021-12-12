@@ -1,21 +1,44 @@
+.container {
+  padding-bottom: 50px;
+}
+
 .image,
 .imageContainer {
   max-width: 250px;
+  min-height: 140px;
 }
 
 .title {
   font-size: 150%;
   font-weight: 200;
-  padding-bottom: 15px;
+  display: flex;
+  align-items: center;
+  padding-bottom: 20px;
+}
+
+.title::before {
+  margin-right: 5px;
+  height: 35px;
+  width: 4px;
+  border-radius: 10px;
+  content: "";
+  display: block;
+  background: var(--red);
 }
 
 .number {
   font-size: 50%;
   opacity: 0.8;
+  margin-left: 8px;
+  position: relative;
+  top: 4px;
 }
 
 .imageContainer {
   max-height: 140px;
+  min-height: 140px;
   overflow: hidden;
   border-radius: 12px;
+  background-position: center;
+  background-size: cover;
 }

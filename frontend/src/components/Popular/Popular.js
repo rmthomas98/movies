@@ -6,7 +6,7 @@ import { Swiper, SwiperSlide } from "swiper/react/swiper-react.js";
 import "swiper/swiper.min.css";
 import "swiper/swiper-bundle.min.css";
 import SwiperLoader from "../SwiperLoader/SwiperLoader";
-import {Link} from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const titleOptions = {
   method: "GET",
@@ -69,17 +69,25 @@ const Popular = () => {
       >
         {data
           ? data.map((element, index) => {
+              const { id } = element.title;
+              const strippedId = id.split("/")[2];
+
               return (
                 <SwiperSlide
                   className={styles.movieContainer}
                   key={index}
                   virtualIndex={index}
                 >
-                  <img
-                    src={element.popularity.image.url}
-                    className={styles.image}
-                    alt="movie cover"
-                  />
+                  <Link
+                    to={`movie-viewer/${strippedId}`}
+                    state={{ id: strippedId }}
+                  >
+                    <img
+                      src={element.popularity.image.url}
+                      className={styles.image}
+                      alt="movie cover"
+                    />
+                  </Link>
                 </SwiperSlide>
               );
             })

@@ -23,7 +23,7 @@ const App = () => {
           <Route path="coming-soon" element={<ExploreComingSoon />} />
           <Route path="genre/:type" element={<ExploreGenre />} />
         </Route>
-        <Route path="movie-viewer" element={<MovieViewer />} />
+        <Route path="movie-viewer/:id" element={<MovieViewer />} />
       </Routes>
       <Footer />
     </div>

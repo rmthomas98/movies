@@ -7,14 +7,14 @@ import {
   HandThumbsDownFill,
 } from "react-bootstrap-icons";
 
-const FeaturedReview = () => {
+const FeaturedReview = ({ id }) => {
   const [featuredReview, setFeaturedReview] = useState();
 
   var FeaturedReviewOptions = {
     method: "GET",
     url: "https://imdb8.p.rapidapi.com/title/get-reviews",
     params: {
-      tconst: "tt0944947",
+      tconst: id,
       currentCountry: "US",
       purchaseCountry: "US",
     },

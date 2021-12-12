@@ -1,0 +1,63 @@
+.videoTrailer {
+  max-height: 500px;
+  height: 100%;
+  border-radius: 12px;
+}
+
+progress {
+  background: var(--red);
+}
+
+.container {
+  padding-bottom: 50px;
+}
+
+.flexContainer {
+  display: flex;
+}
+
+.bioContainer {
+  margin-left: 20px;
+  margin-top: 15px;
+}
+
+.description {
+  font-weight: 200;
+  font-size: 90%;
+  line-height: 1.5;
+}
+
+.title {
+  font-size: 150%;
+  font-weight: 200;
+  display: flex;
+  align-items: center;
+  padding-bottom: 20px;
+}
+
+.title::before {
+  margin-right: 5px;
+  height: 35px;
+  width: 4px;
+  border-radius: 10px;
+  content: "";
+  display: block;
+  background: var(--red);
+}
+
+.videoTitle {
+  font-size: 120%;
+  font-weight: 300;
+}
+
+.movieTitle {
+  text-transform: uppercase;
+  font-weight: 200;
+  font-size: 70%;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border: 1px solid #ffffff28;
+  width: fit-content;
+  border-radius: 10px;
+  padding: 5px 10px;
+}

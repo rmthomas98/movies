@@ -1,6 +1,5 @@
 .container {
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding-bottom: 50px;
 }
 
 .imageContainer {
@@ -19,13 +18,26 @@
 .title {
   font-size: 150%;
   font-weight: 200;
+  display: flex;
+  align-items: center;
   padding-bottom: 20px;
+}
+
+.title::before {
+  margin-right: 5px;
+  height: 35px;
+  width: 4px;
+  border-radius: 10px;
+  content: "";
+  display: block;
+  background: var(--red);
 }
 
 .characterGridContainer {
   width: 100%;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 25px;
+  column-gap: 20px;
+  row-gap: 40px;
   display: grid;
 }
 

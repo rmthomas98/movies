@@ -1,7 +1,19 @@
 .title {
   font-size: 150%;
   font-weight: 200;
+  display: flex;
+  align-items: center;
   padding-bottom: 20px;
+}
+
+.title::before {
+  margin-right: 5px;
+  height: 35px;
+  width: 4px;
+  border-radius: 10px;
+  content: "";
+  display: block;
+  background: var(--red);
 }
 
 .featuredReview {
@@ -12,11 +24,11 @@
 }
 
 .featuredReviewContainer {
-  border: 1px solid #ffffff28;
-  background: #ffffff07;
+  border-top: 1px solid #ffffff28;
+  border-bottom: 1px solid #ffffff28;
   width: fit-content;
-  padding: 25px;
-  border-radius: 12px;
+  padding-top: 25px;
+  padding-bottom: 25px;
 }
 
 .featuredReviewHeader {
@@ -67,4 +79,8 @@
 .thumbContainer p {
   font-size: 75%;
   font-weight: 200;
+}
+
+.container {
+  padding-bottom: 50px;
 }

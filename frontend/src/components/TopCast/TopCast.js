@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react";
 import styles from "./TopCast.module.css";
 import axios from "axios";
 
-const TopCast = () => {
+const TopCast = ({ id }) => {
   const [ids, setIds] = useState();
   const [topCast, setTopCast] = useState();
 
   const options = {
     method: "GET",
     url: "https://imdb8.p.rapidapi.com/title/get-top-cast",
-    params: { tconst: "tt0944947" },
+    params: { tconst: id },
     headers: {
       "x-rapidapi-host": "imdb8.p.rapidapi.com",
       "x-rapidapi-key": "c61810c65cmshac8bf485bd410e3p19fd92jsn1e5912056987",
@@ -21,7 +21,7 @@ const TopCast = () => {
     url: "https://imdb8.p.rapidapi.com/title/get-charname-list",
     params: {
       id: ids,
-      tconst: "tt0944947",
+      tconst: id,
       currentCountry: "US",
       marketplace: "ATVPDKIKX0DER",
       purchaseCountry: "US",
@@ -66,12 +66,20 @@ const TopCast = () => {
             <div className={styles.characterContainer}>
               <div
                 className={styles.imageContainer}
-                style={{ backgroundImage: `url(${element.name.image.url})` }}
+                style={{ backgroundImage: `url(${element.name?.image?.url})` }}
               ></div>
               <div className={styles.nameContainer}>
-                <p className={styles.name}>{element.name.name}</p>
+                <p className={styles.name}>{element.name?.name}</p>
                 <p className={styles.character}>
-                  as {element.charname[0].characters[0]}
+                  as{" "}
+                  {element.charname[0].characters
+                    ? element.charname[0].characters[0]
+                    : element.charname[0].category}
+                  {element.charname[0].characters
+                    ? element.charname[0].characters[1]
+                      ? ` & ${element.charname[0].characters[1]}`
+                      : ""
+                    : ""}
                 </p>
               </div>
             </div>
