@@ -1,0 +1,70 @@
+.title {
+  font-size: 150%;
+  font-weight: 200;
+  padding-bottom: 20px;
+}
+
+.featuredReview {
+  font-weight: 300;
+  font-size: 80%;
+  line-height: 1.5;
+  max-width: 1000px;
+}
+
+.featuredReviewContainer {
+  border: 1px solid #ffffff28;
+  background: #ffffff07;
+  width: fit-content;
+  padding: 25px;
+  border-radius: 12px;
+}
+
+.featuredReviewHeader {
+  text-transform: uppercase;
+  width: fit-content;
+  background: linear-gradient(90deg, var(--red), var(--light-red));
+  padding: 5px 10px;
+  font-size: 65%;
+  font-weight: 600;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.infoFlexContainer {
+  display: flex;
+  padding-bottom: 10px;
+}
+
+.author,
+.submissionDate {
+  margin-right: 15px;
+  font-size: 70%;
+  opacity: 0.8;
+}
+
+.authorRating {
+  font-size: 70%;
+  opacity: 0.8;
+  display: flex;
+  align-items: center;
+}
+
+.ratingSection {
+  padding-top: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.thumbContainer {
+  display: flex;
+  align-items: center;
+}
+
+.thumbContainer:first-of-type {
+  margin-right: 15px;
+}
+
+.thumbContainer p {
+  font-size: 75%;
+  font-weight: 200;
+}

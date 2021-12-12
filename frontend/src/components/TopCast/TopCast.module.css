@@ -1,0 +1,51 @@
+.container {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.imageContainer {
+  min-width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-position: top center;
+  background-size: cover;
+}
+
+/* .image {
+  height: 200px;
+  width: 100%;
+} */
+
+.title {
+  font-size: 150%;
+  font-weight: 200;
+  padding-bottom: 20px;
+}
+
+.characterGridContainer {
+  width: 100%;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
+  display: grid;
+}
+
+.characterContainer {
+  display: flex;
+  align-items: center;
+}
+
+.nameContainer {
+  margin-left: 10px;
+}
+
+.name {
+  font-weight: 300;
+  font-size: 75%;
+  padding-bottom: 5px;
+}
+
+.character {
+  font-weight: 200;
+  font-size: 75%;
+  opacity: 0.8;
+}
