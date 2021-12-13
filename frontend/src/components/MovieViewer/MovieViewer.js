@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import styles from "./MovieViewer.module.css";
-import { StarFill } from "react-bootstrap-icons";
 import MovieImages from "../MovieImages/MovieImages";
 import TopCast from "../TopCast/TopCast";
 import FeaturedReview from "../FeaturedReview/FeaturedReview";

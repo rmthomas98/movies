@@ -3,6 +3,7 @@ import styles from "./ExplorePopular.module.css";
 import axios from "axios";
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import { Link } from "react-router-dom";
 
 const titleOptions = {
   method: "GET",
@@ -76,7 +77,7 @@ const ExplorePopular = () => {
                 <img
                   src={element.popularity.image.url}
                   className={styles.image}
-                  alt="movie cover"
+                  alt={element.title.title}
                 />
               </div>
             );

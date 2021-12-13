@@ -50,7 +50,7 @@ const PictureWinner = () => {
     const getMetaData = async () => {
       const response = await axios.request(metaDataOptions);
       const dataList = Object.values(response.data).map((element) => {
-        return [element.popularity.image.url, element.title.id.split("/")[2]];
+        return [element.popularity.image.url, element.title.id.split("/")[2], element.title.title];
       });
       console.log(dataList);
       setData(dataList);
@@ -80,7 +80,7 @@ const PictureWinner = () => {
                     <img
                       src={element[0]}
                       className={styles.image}
-                      alt="movie cover"
+                      alt={element[2]}
                     />
                   </Link>
                 </SwiperSlide>

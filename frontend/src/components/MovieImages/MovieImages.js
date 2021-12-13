@@ -54,9 +54,8 @@ const MovieImages = ({ id }) => {
             return (
               <SwiperSlide
                 className={styles.imageContainer}
-                style={{ backgroundImage: `url(${element})` }}
               >
-                {/* <img src={element} className={styles.image} alt="movie image" /> */}
+                <img src={element} className={styles.image} alt="movie image" />
               </SwiperSlide>
             );
           })}

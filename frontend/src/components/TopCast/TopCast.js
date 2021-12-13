@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "./TopCast.module.css";
 import axios from "axios";
+import { PersonFill } from "react-bootstrap-icons";
 
 const TopCast = ({ id }) => {
   const [ids, setIds] = useState();
@@ -72,12 +73,13 @@ const TopCast = ({ id }) => {
           {topCast.map((element) => {
             return (
               <div className={styles.characterContainer}>
-                <div
-                  className={styles.imageContainer}
-                  style={{
-                    backgroundImage: `url(${element.name?.image?.url})`,
-                  }}
-                ></div>
+                <div className={styles.imageContainer}>
+                  {element.name?.image?.url ?  <img
+                    src={element.name?.image?.url}
+                    className={styles.image}
+                    alt={element.name?.name}
+                  /> : <PersonFill size={50}/>}
+                </div>
                 <div className={styles.nameContainer}>
                   <p className={styles.name}>{element.name?.name}</p>
                   <p className={styles.character}>

@@ -52,6 +52,7 @@ const TopRated = () => {
           element.ratings.rating,
           element.popularity.image.url,
           element.title.id.split("/")[2],
+          element.title.title
         ];
       });
       console.log(dataList);
@@ -83,7 +84,7 @@ const TopRated = () => {
                     <img
                       src={element[1]}
                       className={styles.image}
-                      alt="movie cover"
+                      alt={element[3]}
                     />
                   </Link>
                 </SwiperSlide>

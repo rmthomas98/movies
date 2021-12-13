@@ -86,7 +86,7 @@ const Popular = () => {
                     <img
                       src={element.popularity.image.url}
                       className={styles.image}
-                      alt="movie cover"
+                      alt={element.title.title}
                     />
                   </Link>
                 </SwiperSlide>
