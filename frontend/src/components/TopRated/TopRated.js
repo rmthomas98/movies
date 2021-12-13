@@ -6,6 +6,7 @@ import { Swiper, SwiperSlide } from "swiper/react/swiper-react.js";
 import "swiper/swiper.min.css";
 import "swiper/swiper-bundle.min.css";
 import SwiperLoader from "../SwiperLoader/SwiperLoader";
+import { Link } from "react-router-dom";
 
 const options = {
   method: "GET",
@@ -31,15 +32,15 @@ const TopRated = () => {
   };
 
   useEffect(() => {
-      const getIds = async () => {
-        const response = await axios.request(options);
-        console.log(response.data.slice(0, 30));
-        const idsList = response.data.slice(0, 30).map((element) => {
-          return element.id.split("/")[2];
-        });
-        setIds(idsList.join("&ids="));
-      };
-      getIds();
+    const getIds = async () => {
+      const response = await axios.request(options);
+      console.log(response.data.slice(0, 30));
+      const idsList = response.data.slice(0, 30).map((element) => {
+        return element.id.split("/")[2];
+      });
+      setIds(idsList.join("&ids="));
+    };
+    getIds();
   }, []);
 
   useEffect(() => {
@@ -47,7 +48,11 @@ const TopRated = () => {
     const getMetaData = async () => {
       const response = await axios.request(metaDataOptions);
       const dataList = Object.values(response.data).map((element) => {
-        return [element.ratings.rating, element.popularity.image.url];
+        return [
+          element.ratings.rating,
+          element.popularity.image.url,
+          element.title.id.split("/")[2],
+        ];
       });
       console.log(dataList);
       setData(dataList);
@@ -60,16 +65,26 @@ const TopRated = () => {
   return (
     <div className={styles.container}>
       <p className="sub-header">Top Rated Movies</p>
-      <Swiper slidesPerView={"auto"} navigation={true} spaceBetween={50}>
+      <Swiper
+        slidesPerView={"auto"}
+        navigation={true}
+        spaceBetween={30}
+        freeMode={true}
+      >
         {data
           ? data.map((element, index) => {
               return (
                 <SwiperSlide className={styles.movieContainer} key={index}>
-                  <img
-                    src={element[1]}
-                    className={styles.image}
-                    alt="movie cover"
-                  />
+                  <Link
+                    to={`movie-viewer/${element[2]}`}
+                    state={{ id: element[2] }}
+                  >
+                    <img
+                      src={element[1]}
+                      className={styles.image}
+                      alt="movie cover"
+                    />
+                  </Link>
                 </SwiperSlide>
               );
             })

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./MovieViewer.module.css";
 import { StarFill } from "react-bootstrap-icons";
 import MovieImages from "../MovieImages/MovieImages";
@@ -11,6 +11,10 @@ import MovieInfo from "../MovieInfo/MovieInfo";
 
 const MovieViewer = () => {
   const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.state.id]);
 
   return (
     <div className={styles.container}>

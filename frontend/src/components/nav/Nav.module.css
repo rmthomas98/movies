@@ -30,3 +30,15 @@
   font-weight: 700;
   border-radius: 15px;
 }
+
+.navLinks {
+  display: flex;
+  align-items: center;
+}
+
+.navLink {
+  color: #fff;
+  text-decoration: none;
+  font-size: 80%;
+  margin-right: 20px;
+}

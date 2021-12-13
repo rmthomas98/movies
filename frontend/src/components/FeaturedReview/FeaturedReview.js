@@ -10,6 +10,10 @@ import {
 const FeaturedReview = ({ id }) => {
   const [featuredReview, setFeaturedReview] = useState();
 
+  useEffect(() => {
+    setFeaturedReview();
+  }, [id]);
+
   var FeaturedReviewOptions = {
     method: "GET",
     url: "https://imdb8.p.rapidapi.com/title/get-reviews",
@@ -25,44 +29,48 @@ const FeaturedReview = ({ id }) => {
   };
 
   useEffect(() => {
-    const getFeaturedReview = async () => {
-      const response = await axios.request(FeaturedReviewOptions);
-      console.log(response.data);
-      setFeaturedReview(response.data.featuredUserReview.review);
-    };
-    getFeaturedReview();
-  }, []);
+    setTimeout(() => {
+      const getFeaturedReview = async () => {
+        const response = await axios.request(FeaturedReviewOptions);
+        console.log(response.data);
+        setFeaturedReview(response.data.featuredUserReview.review);
+      };
+      getFeaturedReview();
+    }, 3000);
+  }, [id]);
 
   console.log(featuredReview);
 
   if (!featuredReview) return "";
 
   return (
-    <div className={styles.container}>
-      <p className={styles.title}>User Reviews</p>
-      <div className={styles.featuredReviewContainer}>
-        <p className={styles.featuredReviewHeader}>Featured Review</p>
-        <div className={styles.infoFlexContainer}>
-          <p className={styles.author}>
-            by {featuredReview.author.displayName}
-          </p>
-          <p className={styles.submissionDate}>
-            {featuredReview.submissionDate}
-          </p>
-          <p className={styles.authorRating}>
-            {featuredReview.authorRating}/10
-            <StarFill color="#f5c518" style={{ marginLeft: 5 }} />
-          </p>
-        </div>
-        <p className={styles.featuredReview}>{featuredReview.reviewText}</p>
-        <div className={styles.ratingSection}>
-          <div className={styles.thumbContainer}>
-            <HandThumbsUpFill style={{ marginRight: 5 }} />
-            <p>{featuredReview.interestingVotes.up}</p>
+    <div className={styles.wrapper}>
+      <div className={styles.container}>
+        <p className={styles.title}>User Reviews</p>
+        <div className={styles.featuredReviewContainer}>
+          <p className={styles.featuredReviewHeader}>Featured Review</p>
+          <div className={styles.infoFlexContainer}>
+            <p className={styles.author}>
+              by {featuredReview.author.displayName}
+            </p>
+            <p className={styles.submissionDate}>
+              {featuredReview.submissionDate}
+            </p>
+            <p className={styles.authorRating}>
+              {featuredReview.authorRating}/10
+              <StarFill color="#f5c518" style={{ marginLeft: 5 }} />
+            </p>
           </div>
-          <div className={styles.thumbContainer}>
-            <HandThumbsDownFill style={{ marginRight: 5 }} />
-            <p>{featuredReview.interestingVotes.down}</p>
+          <p className={styles.featuredReview}>{featuredReview.reviewText}</p>
+          <div className={styles.ratingSection}>
+            <div className={styles.thumbContainer}>
+              <HandThumbsUpFill style={{ marginRight: 5 }} />
+              <p>{featuredReview.interestingVotes.up}</p>
+            </div>
+            <div className={styles.thumbContainer}>
+              <HandThumbsDownFill style={{ marginRight: 5 }} />
+              <p>{featuredReview.interestingVotes.down}</p>
+            </div>
           </div>
         </div>
       </div>

@@ -8,6 +8,13 @@ const MovieVideos = ({ id }) => {
   const [description, setDescription] = useState();
   const [title, setTitle] = useState();
 
+  useEffect(() => {
+    setTrailerId();
+    setTrailer();
+    setDescription();
+    setTitle();
+  }, [id]);
+
   var options = {
     method: "GET",
     url: "https://imdb8.p.rapidapi.com/title/get-videos",
@@ -29,15 +36,17 @@ const MovieVideos = ({ id }) => {
   };
 
   useEffect(() => {
-    const getTrailerId = async () => {
-      const response = await axios.request(options);
-      console.log(response.data);
-      setTrailerId(response.data.resource.videos[0].id.split("/")[2]);
-      setDescription(response.data.resource.videos[0].description);
-      setTitle(response.data.resource.title);
-    };
-    getTrailerId();
-  }, []);
+    setTimeout(() => {
+      const getTrailerId = async () => {
+        const response = await axios.request(options);
+        console.log(response.data);
+        setTrailerId(response.data.resource.videos[0].id.split("/")[2]);
+        setDescription(response.data.resource.videos[0].description);
+        setTitle(response.data.resource.title);
+      };
+      getTrailerId();
+    }, 1000);
+  }, [id]);
 
   useEffect(() => {
     if (!trailerId) return;
@@ -54,14 +63,16 @@ const MovieVideos = ({ id }) => {
   if (!trailer || !description) return "";
 
   return (
-    <div className={styles.container}>
-      <p className={styles.title}>Watch the Official Trailer</p>
-      <div className={styles.flexContainer}>
-        <video src={trailer} controls className={styles.videoTrailer} />
-        <div className={styles.bioContainer}>
-          <p className={styles.videoTitle}>{title}</p>
-          <p className={styles.movieTitle}>Official Trailer</p>
-          <p className={styles.description}>{description}</p>
+    <div className={styles.wrapper}>
+      <div className={styles.container}>
+        <p className={styles.title}>Watch the Official Trailer</p>
+        <div className={styles.flexContainer}>
+          <video src={trailer} controls className={styles.videoTrailer} />
+          <div className={styles.bioContainer}>
+            <p className={styles.videoTitle}>{title}</p>
+            <p className={styles.movieTitle}>Official Trailer</p>
+            <p className={styles.description}>{description}</p>
+          </div>
         </div>
       </div>
     </div>

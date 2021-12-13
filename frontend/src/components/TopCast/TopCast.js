@@ -6,6 +6,11 @@ const TopCast = ({ id }) => {
   const [ids, setIds] = useState();
   const [topCast, setTopCast] = useState();
 
+  useEffect(() => {
+    setIds();
+    setTopCast();
+  }, [id]);
+
   const options = {
     method: "GET",
     url: "https://imdb8.p.rapidapi.com/title/get-top-cast",
@@ -33,17 +38,19 @@ const TopCast = ({ id }) => {
   };
 
   useEffect(() => {
-    const getTopCast = async () => {
-      const response = await axios.request(options);
-      console.log(response.data);
-      const idsList = response.data
-        .slice(0, 20)
-        .map((element) => element.split("/")[2]);
-      setIds(idsList.join("&id="));
-      console.log(idsList);
-    };
-    getTopCast();
-  }, []);
+    setTimeout(() => {
+      const getTopCast = async () => {
+        const response = await axios.request(options);
+        console.log(response.data);
+        const idsList = response.data
+          .slice(0, 20)
+          .map((element) => element.split("/")[2]);
+        setIds(idsList.join("&id="));
+        console.log(idsList);
+      };
+      getTopCast();
+    }, 2000);
+  }, [id]);
 
   useEffect(() => {
     if (!ids) return;
@@ -58,33 +65,37 @@ const TopCast = ({ id }) => {
   if (!topCast) return "";
 
   return (
-    <div className={styles.container}>
-      <p className={styles.title}>Top Cast</p>
-      <div className={styles.characterGridContainer}>
-        {topCast.map((element) => {
-          return (
-            <div className={styles.characterContainer}>
-              <div
-                className={styles.imageContainer}
-                style={{ backgroundImage: `url(${element.name?.image?.url})` }}
-              ></div>
-              <div className={styles.nameContainer}>
-                <p className={styles.name}>{element.name?.name}</p>
-                <p className={styles.character}>
-                  as{" "}
-                  {element.charname[0].characters
-                    ? element.charname[0].characters[0]
-                    : element.charname[0].category}
-                  {element.charname[0].characters
-                    ? element.charname[0].characters[1]
-                      ? ` & ${element.charname[0].characters[1]}`
-                      : ""
-                    : ""}
-                </p>
+    <div className={styles.wrapper}>
+      <div className={styles.container}>
+        <p className={styles.title}>Top Cast</p>
+        <div className={styles.characterGridContainer}>
+          {topCast.map((element) => {
+            return (
+              <div className={styles.characterContainer}>
+                <div
+                  className={styles.imageContainer}
+                  style={{
+                    backgroundImage: `url(${element.name?.image?.url})`,
+                  }}
+                ></div>
+                <div className={styles.nameContainer}>
+                  <p className={styles.name}>{element.name?.name}</p>
+                  <p className={styles.character}>
+                    as{" "}
+                    {element.charname[0].characters
+                      ? element.charname[0].characters[0]
+                      : element.charname[0].category}
+                    {element.charname[0].characters
+                      ? element.charname[0].characters[1]
+                        ? ` & ${element.charname[0].characters[1]}`
+                        : ""
+                      : ""}
+                  </p>
+                </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
     </div>
   );

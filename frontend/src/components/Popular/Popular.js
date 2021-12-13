@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import styles from "./Popular.module.css";
-import SwiperCore, { Navigation } from "swiper";
+import SwiperCore, { Navigation, FreeMode } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react/swiper-react.js";
 import "swiper/swiper.min.css";
 import "swiper/swiper-bundle.min.css";
@@ -54,7 +54,7 @@ const Popular = () => {
   }, [popularTitles]);
 
   console.log(data);
-  SwiperCore.use([Navigation]);
+  SwiperCore.use([Navigation, FreeMode]);
 
   if (!data) return <SwiperLoader />;
 
@@ -63,9 +63,10 @@ const Popular = () => {
       <p className="sub-header">Most Popular Movies</p>
       <Swiper
         slidesPerView={"auto"}
-        spaceBetween={50}
+        spaceBetween={30}
         className={styles.swiperContainer}
         navigation={true}
+        freeMode={true}
       >
         {data
           ? data.map((element, index) => {

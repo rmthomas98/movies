@@ -7,28 +7,8 @@
   max-height: 300px;
   cursor: pointer;
   margin: 40px 0px;
-  margin-top: 30px;
   position: relative;
-}
-
-.movieContainer::after {
-  transition: 0.3s all;
-  height: 100%;
-  width: 100%;
-  background: #00000042;
-  content: "";
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.movieContainer:hover::after {
-  background: transparent;
-}
-
-.movieContainer:hover .image {
-  transform: scale(1);
+  min-width: 200px;
 }
 
 .image {
@@ -37,8 +17,13 @@
   width: 200px;
   min-height: 300px;
   max-height: 300px;
+  opacity: 0.8;
 }
 
+.image:hover {
+  opacity: 1;
+  transform: scale(1);
+}
 .title {
   font-size: 150%;
   font-weight: 200;
@@ -54,4 +39,15 @@
   content: "";
   display: block;
   background: var(--red);
+}
+
+.container {
+  max-width: 1400px;
+  margin: auto;
+}
+
+.wrapper {
+  padding: 30px;
+  padding-top: 0px;
+  padding-bottom: 50px;
 }

@@ -1,52 +1,182 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./MovieInfo.module.css";
 import axios from "axios";
-import { StarFill } from "react-bootstrap-icons";
+import { StarFill, Dot } from "react-bootstrap-icons";
 
 const MovieInfo = ({ id }) => {
-  return (
-    <div className={styles.container}>
-      <p className={styles.title}>Spider Man: No Way Home</p>
-      <div className={styles.movieInfoFlexContainer}>
-        <img
-          src="https://m.media-amazon.com/images/M/MV5BZWMyYzFjYTYtNTRjYi00OGExLWE2YzgtOGRmYjAxZTU3NzBiXkEyXkFqcGdeQXVyMzQ0MzA0NTM@._V1_.jpg"
-          className={styles.movieImageCover}
-        />
-        <div className={styles.infoContainer}>
-          <div className={styles.ratingDate}>
-            <p className={styles.date}>2021</p>
-            <p className={styles.certificate}>R</p>
-            <p className={styles.runTime}>2hr 22m</p>
-            <p className={styles.ratingMarker}>
-              9.2{" "}
-              <StarFill
-                style={{ marginLeft: 5, position: "relative", bottom: 1 }}
-                color="#f5c518"
-              />
-            </p>
-          </div>
-          <div className={styles.genreTags}>
-            <p className={styles.genreTag}>Drama</p>
-            <p className={styles.genreTag}>Thriller</p>
-            <p className={styles.genreTag}>Action</p>
-          </div>
+  const [metaData, setMetaData] = useState();
+  const [starring, setStarring] = useState();
+  const [director, setDirector] = useState();
+  const [plot, setPlot] = useState();
+  const [backgroundImage, setBackgroundImage] = useState();
 
-          <p className={styles.description}>
-            is simply dummy text of the printing and typesetting industry. Lorem
-            Ipsum has been the industry's standard dummy text ever since the
-            1500s, when an unknown printer took a galley of type and scrambled
-            it to make a type specimen book. It
-          </p>
-          <p className={styles.smallTitle}>
-            Director <span className={styles.name}>ryan thomas</span>
-          </p>
-          <p className={styles.smallTitle}>
-            Producer <span className={styles.name}>ryan thomas</span>
-          </p>
-          <div className={styles.watchBtnsContainer}>
-            <p className={styles.watchTitle}>Ways to Watch</p>
-            <p className={styles.theatersBtn}>IN THEATERS</p>
-            <p className={styles.watchBtn}>RENT/BUY</p>
+  useEffect(() => {
+    setMetaData();
+    setStarring();
+    setDirector();
+    setPlot();
+    setBackgroundImage();
+  }, [id]);
+
+  const metaDataOptions = {
+    method: "GET",
+    url: "https://imdb8.p.rapidapi.com/title/get-meta-data",
+    params: { ids: id, region: "US" },
+    headers: {
+      "x-rapidapi-host": "imdb8.p.rapidapi.com",
+      "x-rapidapi-key": "c61810c65cmshac8bf485bd410e3p19fd92jsn1e5912056987",
+    },
+  };
+
+  const creditOptions = {
+    method: "GET",
+    url: "https://imdb8.p.rapidapi.com/title/get-full-credits",
+    params: { tconst: id },
+    headers: {
+      "x-rapidapi-host": "imdb8.p.rapidapi.com",
+      "x-rapidapi-key": "c61810c65cmshac8bf485bd410e3p19fd92jsn1e5912056987",
+    },
+  };
+
+  const plotOptions = {
+    method: "GET",
+    url: "https://imdb8.p.rapidapi.com/title/get-plots",
+    params: { tconst: id },
+    headers: {
+      "x-rapidapi-host": "imdb8.p.rapidapi.com",
+      "x-rapidapi-key": "c61810c65cmshac8bf485bd410e3p19fd92jsn1e5912056987",
+    },
+  };
+
+  var imageOptions = {
+    method: "GET",
+    url: "https://imdb8.p.rapidapi.com/title/get-images",
+    params: { tconst: id, limit: 1 },
+    headers: {
+      "x-rapidapi-host": "imdb8.p.rapidapi.com",
+      "x-rapidapi-key": "c61810c65cmshac8bf485bd410e3p19fd92jsn1e5912056987",
+    },
+  };
+
+  useEffect(() => {
+    const getMetaData = async () => {
+      const response = await axios.request(metaDataOptions);
+      setMetaData(Object.values(response.data));
+      console.log(Object.values(response.data));
+      document.title = Object.values(response.data)[0].title.title;
+    };
+    getMetaData();
+  }, [id]);
+
+  useEffect(() => {
+    const getCredits = async () => {
+      const response = await axios.request(creditOptions);
+      console.log(response.data);
+      setStarring(response.data.cast.slice(0, 3));
+      setDirector(response.data.crew.director[0].name);
+    };
+    getCredits();
+  }, [id]);
+
+  useEffect(() => {
+    const getPlot = async () => {
+      const response = await axios.request(plotOptions);
+      setPlot(response.data.plots[0].text);
+    };
+    getPlot();
+  }, [id]);
+
+  useEffect(() => {
+    const getImage = async () => {
+      const response = await axios.request(imageOptions);
+      console.log(response.data);
+      setBackgroundImage(response.data.images[0].url);
+    };
+    getImage();
+  }, [id]);
+
+  console.log(metaData);
+
+  if (!metaData || !starring || !director || !plot || !backgroundImage)
+    return "";
+
+  return (
+    <div
+      className={styles.container}
+      style={{
+        backgroundImage: `linear-gradient(#00000093, #00000093, #212129),
+    url(${backgroundImage})`,
+      }}
+    >
+      <div className={styles.contentContainer}>
+        <p className={styles.title}>{metaData[0].title.title}</p>
+        <div className={styles.movieInfoFlexContainer}>
+          <img
+            src={metaData[0].popularity.image.url}
+            className={styles.movieImageCover}
+          />
+          <div className={styles.infoContainer}>
+            <div className={styles.ratingDate}>
+              <p className={styles.date}>{metaData[0].releaseDate}</p>
+              <p className={styles.certificate}>{metaData[0].certificate}</p>
+              <p className={styles.runTime}>
+                <span style={{ marginRight: 5 }}>
+                  {Math.floor(metaData[0].title.runningTimeInMinutes / 60)}h
+                </span>
+                <span>{metaData[0].title.runningTimeInMinutes % 60}m</span>
+              </p>
+              <p className={styles.ratingMarker}>
+                {metaData[0].ratings.rating ? (
+                  <>
+                    <span>{metaData[0].ratings.rating}</span>
+                    <StarFill
+                      style={{ marginLeft: 5, position: "relative", bottom: 1 }}
+                      color="#f5c518"
+                    />
+                  </>
+                ) : (
+                  ""
+                )}
+              </p>
+            </div>
+            <div className={styles.genreTags}>
+              {metaData[0].genres.map((element) => (
+                <p className={styles.genreTag}>{element}</p>
+              ))}
+            </div>
+
+            <p className={styles.description}>{plot}</p>
+            <p className={styles.smallTitle}>
+              Director <span className={styles.name}>{director}</span>
+            </p>
+            <p className={styles.smallTitle}>
+              Starring{" "}
+              <span className={styles.name}>
+                {starring[0].name} <Dot className={styles.dot} />{" "}
+                {starring[1].name} <Dot className={styles.dot} />{" "}
+                {starring[2].name}
+              </span>
+            </p>
+            <div className={styles.watchBtnsContainer}>
+              <p className={styles.watchTitle}>Ways to Watch</p>
+              {metaData[0].waysToWatch.optionGroups.map((element) => {
+                if (element.displayName === "ON TV") return "";
+                return (
+                  <a
+                    href={
+                      element.displayName === "IN THEATERS"
+                        ? `https://imdb.com${element.watchOptions[0].link.uri}`
+                        : element.watchOptions[0].link.uri
+                    }
+                    target="_blank"
+                    rel="noreferrer"
+                    className={styles.watchBtn}
+                  >
+                    {element.displayName}
+                  </a>
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>

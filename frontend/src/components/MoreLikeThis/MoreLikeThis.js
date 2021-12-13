@@ -5,10 +5,16 @@ import { Swiper, SwiperSlide } from "swiper/react/swiper-react.js";
 import "swiper/swiper.min.css";
 import "swiper/swiper-bundle.min.css";
 import SwiperCore, { Navigation, FreeMode } from "swiper";
+import { Link } from "react-router-dom";
 
 const MoreLikeThis = ({ id }) => {
   const [ids, setIds] = useState();
   const [data, setData] = useState();
+
+  useEffect(() => {
+    setIds();
+    setData();
+  }, [id]);
 
   const idOptions = {
     method: "GET",
@@ -35,14 +41,16 @@ const MoreLikeThis = ({ id }) => {
   };
 
   useEffect(() => {
-    const getIds = async () => {
-      const response = await axios.request(idOptions);
-      const idList = response.data.map((element) => element.split("/")[2]);
-      console.log(idList);
-      setIds(idList.join("&ids="));
-    };
-    getIds();
-  }, []);
+    setTimeout(() => {
+      const getIds = async () => {
+        const response = await axios.request(idOptions);
+        const idList = response.data.map((element) => element.split("/")[2]);
+        console.log(idList);
+        setIds(idList.join("&ids="));
+      };
+      getIds();
+    }, 4000);
+  }, [id]);
 
   useEffect(() => {
     if (!ids) return;
@@ -61,26 +69,33 @@ const MoreLikeThis = ({ id }) => {
   if (!data) return "";
 
   return (
-    <div className={styles.container}>
-      <p className={styles.title}>More Like This</p>
-      <Swiper
-        navigation={true}
-        slidesPerView={"auto"}
-        spaceBetween={40}
-        freeMode={true}
-      >
-        {data.map((element) => {
-          return (
-            <SwiperSlide className={styles.movieContainer}>
-              <img
-                src={element.popularity.image.url}
-                className={styles.image}
-                alt="movie cover"
-              />
-            </SwiperSlide>
-          );
-        })}
-      </Swiper>
+    <div className={styles.wrapper}>
+      <div className={styles.container}>
+        <p className={styles.title}>More Like This</p>
+        <Swiper
+          navigation={true}
+          slidesPerView={"auto"}
+          spaceBetween={30}
+          freeMode={true}
+        >
+          {data.map((element) => {
+            return (
+              <SwiperSlide className={styles.movieContainer}>
+                <Link
+                  to={`/movie-viewer/${element.title.id.split("/")[2]}`}
+                  state={{ id: element.title.id.split("/")[2] }}
+                >
+                  <img
+                    src={element.popularity.image.url}
+                    className={styles.image}
+                    alt="movie cover"
+                  />
+                </Link>
+              </SwiperSlide>
+            );
+          })}
+        </Swiper>
+      </div>
     </div>
   );
 };

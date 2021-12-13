@@ -6,6 +6,7 @@ import { Swiper, SwiperSlide } from "swiper/react/swiper-react.js";
 import "swiper/swiper.min.css";
 import "swiper/swiper-bundle.min.css";
 import SwiperLoader from "../SwiperLoader/SwiperLoader";
+import { Link } from "react-router-dom";
 
 const options = {
   method: "GET",
@@ -32,7 +33,6 @@ const PictureWinner = () => {
 
   useEffect(() => {
     setTimeout(() => {
-
       const getIds = async () => {
         const response = await axios.request(options);
         console.log(response.data.slice(0, 30));
@@ -42,7 +42,7 @@ const PictureWinner = () => {
         setIds(idsList.join("&ids="));
       };
       getIds();
-    }, 1000)
+    }, 1000);
   }, []);
 
   useEffect(() => {
@@ -50,7 +50,7 @@ const PictureWinner = () => {
     const getMetaData = async () => {
       const response = await axios.request(metaDataOptions);
       const dataList = Object.values(response.data).map((element) => {
-        return element.popularity.image.url;
+        return [element.popularity.image.url, element.title.id.split("/")[2]];
       });
       console.log(dataList);
       setData(dataList);
@@ -63,16 +63,26 @@ const PictureWinner = () => {
   return (
     <div className={styles.container}>
       <p className="sub-header">Best Picture Winners</p>
-      <Swiper slidesPerView={"auto"} navigation={true} spaceBetween={50} >
+      <Swiper
+        slidesPerView={"auto"}
+        navigation={true}
+        spaceBetween={30}
+        freeMode={true}
+      >
         {data
           ? data.map((element, index) => {
               return (
                 <SwiperSlide className={styles.movieContainer} key={index}>
-                  <img
-                    src={element}
-                    className={styles.image}
-                    alt="movie cover"
-                  />
+                  <Link
+                    to={`movie-viewer/${element[1]}`}
+                    state={{ id: element[1] }}
+                  >
+                    <img
+                      src={element[0]}
+                      className={styles.image}
+                      alt="movie cover"
+                    />
+                  </Link>
                 </SwiperSlide>
               );
             })
