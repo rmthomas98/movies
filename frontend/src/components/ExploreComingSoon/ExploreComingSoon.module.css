@@ -22,33 +22,17 @@
 .movieContainer {
   border-radius: 12px;
   max-width: 200px;
-  min-width: 200px;
   overflow: hidden;
   height: 100%;
   min-height: 300px;
   max-height: 300px;
   cursor: pointer;
   position: relative;
-}
-
-.movieContainer::after {
-  transition: 0.3s all;
-  height: 100%;
-  width: 100%;
-  background: #00000042;
-  content: "";
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.movieContainer:hover::after {
-  background: transparent;
-}
-
-.movieContainer:hover .image {
-  transform: scale(1);
+  min-width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff10;
 }
 
 .image {
@@ -57,4 +41,18 @@
   width: 200px;
   min-height: 300px;
   max-height: 300px;
+  opacity: 0.8;
+}
+
+.image:hover {
+  opacity: 1;
+  transform: scale(1.01);
+}
+
+.link {
+  color: #fff;
+  font-weight: 200;
+  text-align: center;
+  font-size: 80%;
+  text-decoration: none;
 }

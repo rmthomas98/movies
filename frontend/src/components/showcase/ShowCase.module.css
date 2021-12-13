@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background-image: linear-gradient(#0000009c, #0000009c),
+  background-image: linear-gradient(#0000009c, #0000009c, var(--background)),
     url("./assets/images/bg.jpg");
   background-size: cover;
   background-position: center;

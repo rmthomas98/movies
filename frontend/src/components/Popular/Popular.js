@@ -82,6 +82,7 @@ const Popular = () => {
                   <Link
                     to={`movie-viewer/${strippedId}`}
                     state={{ id: strippedId }}
+                    className={styles.link}
                   >
                     <img
                       src={element.popularity.image.url}

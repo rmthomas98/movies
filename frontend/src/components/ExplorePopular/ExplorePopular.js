@@ -3,7 +3,7 @@ import styles from "./ExplorePopular.module.css";
 import axios from "axios";
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-import { Link } from "react-router-dom";
+import {Link} from 'react-router-dom';
 
 const titleOptions = {
   method: "GET",
@@ -31,6 +31,7 @@ const ExplorePopular = () => {
 
   useEffect(() => {
     window.scrollTo(0,0)
+    document.title = 'Most Popular Movies'
   },[])
 
   useEffect(() => {
@@ -74,11 +75,13 @@ const ExplorePopular = () => {
         ? data.map((element) => {
             return (
               <div className={styles.movieContainer}>
+                <Link to={`/movie-viewer/${element.title.id.split('/')[2]}`} state={{id: element.title.id.split('/')[2]}} className={styles.link}>
                 <img
                   src={element.popularity.image.url}
                   className={styles.image}
                   alt={element.title.title}
                 />
+                </Link>
               </div>
             );
           })

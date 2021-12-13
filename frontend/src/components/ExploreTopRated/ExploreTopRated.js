@@ -3,6 +3,7 @@ import styles from "./ExploreTopRated.module.css";
 import axios from "axios";
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import {Link} from 'react-router-dom';
 
 const options = {
   method: "GET",
@@ -29,6 +30,7 @@ const ExploreTopRated = () => {
 
   useEffect(() => {
     window.scrollTo(0,0)
+    document.title = 'Top Rated'
   },[])
 
   useEffect(() => {
@@ -48,7 +50,7 @@ const ExploreTopRated = () => {
     const getMetaData = async () => {
       const response = await axios.request(metaDataOptions);
       const dataList = Object.values(response.data).map((element) => {
-        return [element.ratings.rating, element.popularity.image.url];
+        return [element.ratings.rating, element.popularity.image.url, element.title.title, element.title.id.split('/')[2]];
       });
       console.log(dataList);
       setData(dataList);
@@ -76,11 +78,13 @@ const ExploreTopRated = () => {
         ? data.map((element) => {
             return (
               <div className={styles.movieContainer}>
+                <Link to={`/movie-viewer/${element[3]}`} state={{id: element[3]}} className={styles.link}>
                 <img
                   src={element[1]}
                   className={styles.image}
-                  alt="movie cover"
+                  alt={element[2]}
                 />
+                </Link>
               </div>
             );
           })

@@ -17,6 +17,11 @@ const ExplorePictureWinners = () => {
   const [ids, setIds] = useState();
   const [data, setData] = useState();
 
+  useEffect(() => {
+    window.scrollTo(0,0);
+    document.title = 'Best Picture Winners'
+  })
+
   const metaDataOptions = {
     method: "GET",
     url: "https://imdb8.p.rapidapi.com/title/get-meta-data",

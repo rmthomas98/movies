@@ -79,16 +79,18 @@ const MoreLikeThis = ({ id }) => {
           freeMode={true}
         >
           {data.map((element) => {
+            if (element.title.numberOfEpisodes) return ''
             return (
               <SwiperSlide className={styles.movieContainer}>
                 <Link
                   to={`/movie-viewer/${element.title.id.split("/")[2]}`}
                   state={{ id: element.title.id.split("/")[2] }}
+                  className={styles.link}
                 >
                   <img
-                    src={element.popularity.image.url}
+                    src={element.popularity.image?.url}
                     className={styles.image}
-                    alt="movie cover"
+                    alt={element.title.title}
                   />
                 </Link>
               </SwiperSlide>

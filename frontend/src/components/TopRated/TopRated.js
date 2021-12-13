@@ -80,6 +80,7 @@ const TopRated = () => {
                   <Link
                     to={`movie-viewer/${element[2]}`}
                     state={{ id: element[2] }}
+                    className={styles.link}
                   >
                     <img
                       src={element[1]}

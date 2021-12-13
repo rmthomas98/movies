@@ -76,6 +76,7 @@ const PictureWinner = () => {
                   <Link
                     to={`movie-viewer/${element[1]}`}
                     state={{ id: element[1] }}
+                    className={styles.link}
                   >
                     <img
                       src={element[0]}

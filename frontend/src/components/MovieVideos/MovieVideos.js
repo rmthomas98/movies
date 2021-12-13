@@ -40,8 +40,8 @@ const MovieVideos = ({ id }) => {
       const getTrailerId = async () => {
         const response = await axios.request(options);
         console.log(response.data);
-        setTrailerId(response.data.resource.videos[0].id.split("/")[2]);
-        setDescription(response.data.resource.videos[0].description);
+        setTrailerId(response.data.resource.videos?.[0]?.id.split("/")[2]);
+        setDescription(response.data.resource.videos?.[0].description);
         setTitle(response.data.resource.title);
       };
       getTrailerId();

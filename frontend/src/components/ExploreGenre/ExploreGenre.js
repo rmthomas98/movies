@@ -4,6 +4,7 @@ import styles from "./ExploreGenre.module.css";
 import axios from "axios";
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import { Link } from "react-router-dom";
 
 const ExploreGenre = () => {
   const [ids, setIds] = useState();
@@ -35,6 +36,9 @@ const ExploreGenre = () => {
     window.scrollTo(0, 0);
     setData();
     setIds();
+    const firstLetter = location.state.genre[0].toUpperCase();
+    const genre = firstLetter + location.state.genre.slice(1);
+    document.title = `${genre} Movies`;
   }, [location]);
 
   useEffect(() => {
@@ -55,7 +59,11 @@ const ExploreGenre = () => {
       const response = await axios.request(metaOptions);
       console.log(response.data);
       const dataList = Object.values(response.data).map((element) => {
-        return element.popularity.image?.url;
+        return [
+          element.popularity.image?.url,
+          element.title.title,
+          element.title.id.split("/")[2],
+        ];
       });
       setData(dataList.slice(0, 50));
     };
@@ -84,7 +92,17 @@ const ExploreGenre = () => {
         ? data.map((element) => {
             return (
               <div className={styles.movieContainer}>
-                <img src={element} alt="movie cover" className={styles.image} />
+                <Link
+                  to={`/movie-viewer/${element[2]}`}
+                  state={{ id: element[2] }}
+                  className={styles.link}
+                >
+                  <img
+                    src={element[0]}
+                    alt={element[1]}
+                    className={styles.image}
+                  />
+                </Link>
               </div>
             );
           })

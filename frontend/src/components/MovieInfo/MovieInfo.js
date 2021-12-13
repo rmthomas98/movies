@@ -104,7 +104,7 @@ const MovieInfo = ({ id }) => {
     <div
       className={styles.container}
       style={{
-        backgroundImage: `linear-gradient(#00000093, #00000093, #212129),
+        backgroundImage: `linear-gradient(#00000093, #00000093, #0b0b0e),
     url(${backgroundImage})`,
       }}
     >
@@ -158,9 +158,10 @@ const MovieInfo = ({ id }) => {
               </span>
             </p>
             <div className={styles.watchBtnsContainer}>
-              <p className={styles.watchTitle}>Ways to Watch</p>
+              {metaData[0].waysToWatch.optionGroups ?  <><p className={styles.watchTitle}>Ways to Watch</p>
               {metaData[0].waysToWatch.optionGroups.map((element) => {
                 if (element.displayName === "ON TV") return "";
+                if (element.displayName === 'WATCH ON IMDb') return ''
                 return (
                   <a
                     href={
@@ -175,7 +176,7 @@ const MovieInfo = ({ id }) => {
                     {element.displayName}
                   </a>
                 );
-              })}
+              })}</> : ''}
             </div>
           </div>
         </div>

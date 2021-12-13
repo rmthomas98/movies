@@ -3,6 +3,7 @@ import styles from "./ExploreComingSoon.module.css";
 import axios from "axios";
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import {Link} from 'react-router-dom';
 
 const options = {
   method: "GET",
@@ -30,6 +31,7 @@ const ExploreComingSoon = () => {
 
   useEffect(() => {
     window.scrollTo(0,0)
+    document.title = 'Movies Coming Soon'
   },[])
 
   useEffect(() => {
@@ -50,7 +52,7 @@ const ExploreComingSoon = () => {
       const response = await axios.request(metaDataOptions);
       console.log(Object.values(response.data));
       const metaList = Object.values(response.data).map((element) => {
-        return element.popularity.image?.url;
+        return [element.popularity.image?.url, element.title.title, element.title.id.split('/')[2] ];
       });
       setData(metaList);
     };
@@ -77,7 +79,9 @@ const ExploreComingSoon = () => {
         ? data.map((element) => {
             return (
               <div className={styles.movieContainer}>
-                <img src={element} className={styles.image} alt="movie cover" />
+                <Link to={`/movie-viewer/${element[2]}`} state={{id: element[2]}} className={styles.link}>
+                <img src={element[0]} className={styles.image} alt={element[1]} />
+                </Link>
               </div>
             );
           })
