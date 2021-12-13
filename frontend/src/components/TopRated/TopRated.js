@@ -60,6 +60,7 @@ const TopRated = () => {
     getMetaData();
   }, [ids]);
 
+  //loader component
   if (!data) return <SwiperLoader />;
 
   return (
