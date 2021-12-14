@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./Nav.module.css";
-import { Search, Film } from "react-bootstrap-icons";
+import { Search as SearchIcon, Film } from "react-bootstrap-icons";
 import { Link, NavLink } from "react-router-dom";
 
 const Nav = () => {
@@ -21,7 +21,7 @@ const Nav = () => {
             Explore
           </NavLink>
           <div className={styles.search}>
-            <Search size={20} />
+            <SearchIcon size={20} />
             <p style={{ marginLeft: 10 }}>Search</p>
           </div>
         </div>
