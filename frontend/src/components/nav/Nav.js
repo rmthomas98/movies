@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styles from "./Nav.module.css";
 import { Search as SearchIcon, Film } from "react-bootstrap-icons";
 import { Link, NavLink } from "react-router-dom";
+import Search from "../Search/Search";
 
 const Nav = () => {
   return (
@@ -13,6 +14,7 @@ const Nav = () => {
             MovieExplorer
           </Link>
         </div>
+        <Search />
         <div className={styles.navLinks}>
           <NavLink to="/" className={styles.navLink}>
             Home
@@ -20,10 +22,6 @@ const Nav = () => {
           <NavLink to="/explore/popular" className={styles.navLink}>
             Explore
           </NavLink>
-          <div className={styles.search}>
-            <SearchIcon size={20} />
-            <p style={{ marginLeft: 10 }}>Search</p>
-          </div>
         </div>
       </div>
     </div>

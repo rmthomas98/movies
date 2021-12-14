@@ -73,6 +73,7 @@ const MovieInfo = ({ id }) => {
       const response = await axios.request(creditOptions);
       console.log(response.data);
       setStarring(response.data.cast.slice(0, 3));
+      if (!response.data.crew.director) return;
       setDirector(response.data.crew.director[0].name);
     };
     getCredits();
@@ -81,6 +82,7 @@ const MovieInfo = ({ id }) => {
   useEffect(() => {
     const getPlot = async () => {
       const response = await axios.request(plotOptions);
+      if (!response.data.plots[0]) return;
       setPlot(response.data.plots[0].text);
     };
     getPlot();
@@ -97,8 +99,7 @@ const MovieInfo = ({ id }) => {
 
   console.log(metaData);
 
-  if (!metaData || !starring || !director || !plot || !backgroundImage)
-    return "";
+  if (!metaData || !starring || !backgroundImage) return "";
 
   return (
     <div
@@ -121,9 +122,16 @@ const MovieInfo = ({ id }) => {
               <p className={styles.certificate}>{metaData[0].certificate}</p>
               <p className={styles.runTime}>
                 <span style={{ marginRight: 5 }}>
-                  {Math.floor(metaData[0].title.runningTimeInMinutes / 60)}h
+                  {metaData[0].title.runningTimeInMinutes
+                    ? Math.floor(metaData[0].title.runningTimeInMinutes / 60) +
+                      "h"
+                    : ""}
                 </span>
-                <span>{metaData[0].title.runningTimeInMinutes % 60}m</span>
+                <span>
+                  {metaData[0].title.runningTimeInMinutes
+                    ? (metaData[0].title.runningTimeInMinutes % 60) + "m"
+                    : ""}
+                </span>
               </p>
               <p className={styles.ratingMarker}>
                 {metaData[0].ratings.rating ? (
@@ -145,38 +153,46 @@ const MovieInfo = ({ id }) => {
               ))}
             </div>
 
-            <p className={styles.description}>{plot}</p>
-            <p className={styles.smallTitle}>
-              Director <span className={styles.name}>{director}</span>
-            </p>
+            {plot ? <p className={styles.description}>{plot}</p> : ""}
+            {director ? (
+              <p className={styles.smallTitle}>
+                Director <span className={styles.name}>{director}</span>
+              </p>
+            ) : (
+              ""
+            )}
             <p className={styles.smallTitle}>
               Starring{" "}
               <span className={styles.name}>
-                {starring[0].name} <Dot className={styles.dot} />{" "}
-                {starring[1].name} <Dot className={styles.dot} />{" "}
-                {starring[2].name}
+                {starring[0]?.name} <Dot className={styles.dot} />{" "}
+                {starring[1]?.name} <Dot className={styles.dot} />{" "}
+                {starring[2]?.name}
               </span>
             </p>
             <div className={styles.watchBtnsContainer}>
-              {metaData[0].waysToWatch.optionGroups ?  <><p className={styles.watchTitle}>Ways to Watch</p>
-              {metaData[0].waysToWatch.optionGroups.map((element) => {
-                if (element.displayName === "ON TV") return "";
-                if (element.displayName === 'WATCH ON IMDb') return ''
-                return (
-                  <a
-                    href={
-                      element.displayName === "IN THEATERS"
-                        ? `https://imdb.com${element.watchOptions[0].link.uri}`
-                        : element.watchOptions[0].link.uri
-                    }
-                    target="_blank"
-                    rel="noreferrer"
-                    className={styles.watchBtn}
-                  >
-                    {element.displayName}
-                  </a>
-                );
-              })}</> : ''}
+              {metaData[0].waysToWatch.optionGroups ? (
+                <>
+                  <p className={styles.watchTitle}>Ways to Watch</p>
+                  {metaData[0].waysToWatch.optionGroups.map((element) => {
+                    return (
+                      <a
+                        href={
+                          element.displayName === "IN THEATERS"
+                            ? `https://imdb.com${element.watchOptions[0].link.uri}`
+                            : element.watchOptions[0].link.uri
+                        }
+                        target="_blank"
+                        rel="noreferrer"
+                        className={styles.watchBtn}
+                      >
+                        {element.displayName}
+                      </a>
+                    );
+                  })}
+                </>
+              ) : (
+                ""
+              )}
             </div>
           </div>
         </div>
