@@ -37,7 +37,7 @@
   font-size: 70%;
   position: absolute;
   z-index: 9999;
-  max-height: 100vh;
+  max-height: 90vh;
   overflow-y: auto;
   overflow-x: hidden;
 }
@@ -53,16 +53,11 @@
 .resultContainer {
   display: flex;
   padding: 10px;
-  border-bottom: 1px solid #ffffff1c;
+  transition: 0.2s all;
 }
 
 .resultContainer:hover {
   background: #ffffff1c;
-  border-bottom: 1px solid transparent;
-}
-
-.resultContainer:last-of-type {
-  border-bottom: none;
 }
 
 .resultHeader:first-of-type {
@@ -85,11 +80,21 @@
   margin-right: 10px;
 }
 
-.loaderContainer {
+.loaderContainer,
+.noResultContainer {
   height: 100%;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 200px;
+}
+
+.noResultContainer:hover {
+  background: var(--dark-background);
+}
+
+.link {
+  color: #fff;
+  text-decoration: none;
 }

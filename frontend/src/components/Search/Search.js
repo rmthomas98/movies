@@ -26,7 +26,7 @@ const Search = () => {
     const getSearchData = async () => {
       const response = await axios.request(options);
       console.log(response.data);
-      setData(response.data.results);
+      setData(response.data);
     };
     getSearchData();
   }, [value]);
@@ -74,22 +74,38 @@ const Search = () => {
         </div>
         {data ? (
           <div className={styles.resultsContainer}>
-            {data.map((element) => {
-              if (element.episode || !element.image || element.name) return "";
-              return (
-                <div className={styles.resultContainer}>
-                  <img
-                    src={element.image?.url}
-                    alt={element.title}
-                    className={styles.image}
-                  />
-                  <div className={styles.resultInfo}>
-                    <p className={styles.resultHeader}>{element.title}</p>
-                    <p className={styles.resultHeader}>{element.year}</p>
-                  </div>
-                </div>
-              );
-            })}
+            {data.results ? (
+              data.results.map((element) => {
+                if (element.episode || !element.image || element.name || element.titleType === 'video' || element.titleType === 'short')
+                  return "";
+                return (
+                  <Link
+                    to={`/movie-viewer/${element.id.split("/")[2]}`}
+                    state={{ id: element.id.split("/")[2] }}
+                    className={styles.link}
+                    onClick={handleOutsideClick}
+                  >
+                    <div className={styles.resultContainer}>
+                      <img
+                        src={element.image?.url}
+                        alt={element.title}
+                        className={styles.image}
+                      />
+                      <div className={styles.resultInfo}>
+                        <p className={styles.resultHeader}>{element.title}</p>
+                        <p className={styles.resultHeader}>{element.year}</p>
+                      </div>
+                    </div>
+                  </Link>
+                );
+              })
+            ) : (
+              <div
+                className={`${styles.resultContainer} ${styles.noResultContainer}`}
+              >
+                <p>No Results Found</p>
+              </div>
+            )}
           </div>
         ) : text ? (
           <div className={styles.resultsContainer}>

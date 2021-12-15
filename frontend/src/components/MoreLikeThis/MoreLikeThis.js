@@ -79,7 +79,14 @@ const MoreLikeThis = ({ id }) => {
           freeMode={true}
         >
           {data.map((element) => {
-            if (element.title.numberOfEpisodes) return ''
+            if (
+              element.title.numberOfEpisodes ||
+              !element.title.image ||
+              element.title.titleType === "short" ||
+              element.title.titleType === "video" ||
+              !element.title.runningTimeInMinutes
+            )
+              return "";
             return (
               <SwiperSlide className={styles.movieContainer}>
                 <Link

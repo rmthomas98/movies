@@ -5,7 +5,7 @@
 
 .movieImageCover {
   max-width: 250px;
-  border-radius: 12px;
+  max-height: 375px;
   border-radius: 12px;
 }
 

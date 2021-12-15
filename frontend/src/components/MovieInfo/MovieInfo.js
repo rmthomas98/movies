@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./MovieInfo.module.css";
 import axios from "axios";
 import { StarFill, Dot } from "react-bootstrap-icons";
+import MovieInfoLoader from "../MovieInfoLoader/MovieInfoLoader";
 
 const MovieInfo = ({ id }) => {
   const [metaData, setMetaData] = useState();
@@ -99,7 +100,7 @@ const MovieInfo = ({ id }) => {
 
   console.log(metaData);
 
-  if (!metaData || !starring || !backgroundImage) return "";
+  if (!metaData || !starring || !backgroundImage) return <MovieInfoLoader />;
 
   return (
     <div
@@ -164,8 +165,10 @@ const MovieInfo = ({ id }) => {
             <p className={styles.smallTitle}>
               Starring{" "}
               <span className={styles.name}>
-                {starring[0]?.name} <Dot className={styles.dot} />{" "}
-                {starring[1]?.name} <Dot className={styles.dot} />{" "}
+                {starring[0]?.name} 
+                {starring[1]?.name ? <Dot className={styles.dot} /> : ''}
+                {starring[1]?.name} 
+                {starring[2]?.name ? <Dot className={styles.dot} /> : '' }
                 {starring[2]?.name}
               </span>
             </p>
@@ -191,7 +194,7 @@ const MovieInfo = ({ id }) => {
                   })}
                 </>
               ) : (
-                ""
+                ''
               )}
             </div>
           </div>
