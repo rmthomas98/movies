@@ -62,16 +62,20 @@ const FeaturedReview = ({ id }) => {
             </p>
           </div>
           <p className={styles.featuredReview}>{featuredReview.reviewText}</p>
-          <div className={styles.ratingSection}>
-            <div className={styles.thumbContainer}>
-              <HandThumbsUpFill style={{ marginRight: 5 }} />
-              <p>{featuredReview.interestingVotes.up}</p>
+          {featuredReview.interestingVotes ? (
+            <div className={styles.ratingSection}>
+              <div className={styles.thumbContainer}>
+                <HandThumbsUpFill style={{ marginRight: 5 }} />
+                <p>{featuredReview.interestingVotes.up}</p>
+              </div>
+              <div className={styles.thumbContainer}>
+                <HandThumbsDownFill style={{ marginRight: 5 }} />
+                <p>{featuredReview.interestingVotes.down}</p>
+              </div>
             </div>
-            <div className={styles.thumbContainer}>
-              <HandThumbsDownFill style={{ marginRight: 5 }} />
-              <p>{featuredReview.interestingVotes.down}</p>
-            </div>
-          </div>
+          ) : (
+            ""
+          )}
         </div>
       </div>
     </div>

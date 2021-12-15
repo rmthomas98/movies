@@ -10,7 +10,7 @@ const SwiperLoader = () => {
     <div className={styles.container}>
       <Swiper
         slidesPerView={"auto"}
-        spaceBetween={50}
+        spaceBetween={30}
         className={styles.swiperContainer}
         navigation={true}
       >

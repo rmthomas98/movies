@@ -34,7 +34,7 @@
 
 .image:hover {
   opacity: 1;
-  transform: scale(1);
+  transform: scale(1.01);
 }
 .title {
   font-size: 150%;

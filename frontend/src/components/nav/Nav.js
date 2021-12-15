@@ -9,7 +9,7 @@ const Nav = () => {
     <div className={styles.container}>
       <div className={styles.contentContainer}>
         <div style={{ display: "flex", alignItems: "center" }}>
-          <Film style={{ marginRight: 10 }} />
+          <Film style={{ marginRight: 10 }} color="#d31027" />
           <Link to="/" className={styles.title}>
             MovieExplorer
           </Link>
