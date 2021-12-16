@@ -54,4 +54,10 @@ body {
 .react-read-more-read-less-more,
 .react-read-more-read-less {
   color: #6287ff;
+  transition: 0.2s;
+}
+
+.react-read-more-read-less:hover,
+.react-read-more-read-less-more:hover {
+  color: #8aa5ff;
 }

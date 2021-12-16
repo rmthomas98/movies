@@ -59,16 +59,17 @@ const MovieVideos = ({ id }) => {
     getTrailer();
   }, [trailerId]);
 
-  console.log(trailerId);
+  console.log(trailer);
+  console.log(description)
 
-  if (!trailer || !description) return <MovieVideoLoader />;
+  if (!trailer) return <MovieVideoLoader />;
 
   return (
     <div className={styles.wrapper}>
-      <div className={styles.container} style={{ minHeight: 300 }}>
+      <div className={styles.container}>
         <p className={styles.title}>Watch the Official Trailer</p>
         <div className={styles.flexContainer}>
-          <video src={trailer} controls className={styles.videoTrailer} />
+          <video src={trailer} controls className={styles.videoTrailer}/>
           <div className={styles.bioContainer}>
             <p className={styles.videoTitle}>{title}</p>
             <p className={styles.movieTitle}>Official Trailer</p>

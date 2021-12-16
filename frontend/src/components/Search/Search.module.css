@@ -53,7 +53,7 @@
 .resultContainer {
   display: flex;
   padding: 10px;
-  transition: 0.2s all;
+  transition: 0.1s all;
 }
 
 .resultContainer:hover {
