@@ -6,6 +6,7 @@ import {
   HandThumbsUpFill,
   HandThumbsDownFill,
 } from "react-bootstrap-icons";
+import ReactReadMoreReadLess from "react-read-more-read-less";
 
 const FeaturedReview = ({ id }) => {
   const [featuredReview, setFeaturedReview] = useState();
@@ -61,7 +62,11 @@ const FeaturedReview = ({ id }) => {
               <StarFill color="#f5c518" style={{ marginLeft: 5 }} />
             </p>
           </div>
-          <p className={styles.featuredReview}>{featuredReview.reviewText}</p>
+          <p className={styles.featuredReview}>
+            <ReactReadMoreReadLess charLimit={800}>
+              {featuredReview.reviewText}
+            </ReactReadMoreReadLess>
+          </p>
           {featuredReview.interestingVotes ? (
             <div className={styles.ratingSection}>
               <div className={styles.thumbContainer}>

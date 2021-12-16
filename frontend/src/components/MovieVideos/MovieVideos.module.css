@@ -5,10 +5,6 @@
   border-radius: 12px;
 }
 
-progress {
-  background: var(--red);
-}
-
 .container {
   max-width: 1400px;
   margin: auto;

@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react/swiper-react.js";
 import "swiper/swiper.min.css";
 import "swiper/swiper-bundle.min.css";
 import SwiperCore, { Navigation, FreeMode } from "swiper";
+import MovieImagesLoader from "../MovieImagesLoader/MovieImagesLoader";
 
 const MovieImages = ({ id }) => {
   const [images, setImages] = useState();
@@ -36,7 +37,7 @@ const MovieImages = ({ id }) => {
 
   SwiperCore.use([Navigation, FreeMode]);
 
-  if (!images) return "";
+  if (!images) return <MovieImagesLoader />;
 
   return (
     <div className={styles.wrapper}>
@@ -52,9 +53,7 @@ const MovieImages = ({ id }) => {
         >
           {images.map((element) => {
             return (
-              <SwiperSlide
-                className={styles.imageContainer}
-              >
+              <SwiperSlide className={styles.imageContainer}>
                 <img src={element} className={styles.image} alt="movie image" />
               </SwiperSlide>
             );

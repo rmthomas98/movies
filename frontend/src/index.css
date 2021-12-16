@@ -50,3 +50,8 @@ body {
   font-weight: 200;
   font-size: 90%;
 }
+
+.react-read-more-read-less-more,
+.react-read-more-read-less {
+  color: #6287ff;
+}

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./TopCast.module.css";
 import axios from "axios";
 import { PersonFill } from "react-bootstrap-icons";
+import TopCastLoader from "../TopCastLoader/TopCastLoader";
 
 const TopCast = ({ id }) => {
   const [ids, setIds] = useState();
@@ -63,7 +64,7 @@ const TopCast = ({ id }) => {
     getBios();
   }, [ids]);
 
-  if (!topCast) return "";
+  if (!topCast) return <TopCastLoader />;
 
   return (
     <div className={styles.wrapper}>
@@ -74,11 +75,15 @@ const TopCast = ({ id }) => {
             return (
               <div className={styles.characterContainer}>
                 <div className={styles.imageContainer}>
-                  {element.name?.image?.url ?  <img
-                    src={element.name?.image?.url}
-                    className={styles.image}
-                    alt={element.name?.name}
-                  /> : <PersonFill size={50}/>}
+                  {element.name?.image?.url ? (
+                    <img
+                      src={element.name?.image?.url}
+                      className={styles.image}
+                      alt={element.name?.name}
+                    />
+                  ) : (
+                    <PersonFill size={50} />
+                  )}
                 </div>
                 <div className={styles.nameContainer}>
                   <p className={styles.name}>{element.name?.name}</p>

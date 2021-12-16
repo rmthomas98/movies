@@ -1,0 +1,102 @@
+.wrapper {
+  padding: 30px;
+  padding-top: 0px;
+  padding-bottom: 50px;
+}
+
+.container {
+  max-width: 1400px;
+  margin: auto;
+}
+
+.title {
+  font-size: 150%;
+  font-weight: 200;
+  display: flex;
+  align-items: center;
+  padding-bottom: 20px;
+}
+
+.title::before {
+  margin-right: 5px;
+  height: 35px;
+  width: 4px;
+  border-radius: 10px;
+  content: "";
+  display: block;
+  background: var(--red);
+}
+
+.flexContainer {
+  display: flex;
+}
+
+.videoTrailer {
+  height: 400px;
+  width: 100%;
+  max-width: 800px;
+  background: var(--dark-background);
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.infoContainer {
+  margin-left: 20px;
+}
+
+.infoTitle {
+  height: 30px;
+  width: 300px;
+  background: var(--dark-background);
+  border-radius: 6px;
+  margin-bottom: 15px;
+  position: relative;
+  overflow: hidden;
+}
+
+.officialTrailer {
+  height: 25px;
+  width: 150px;
+  background: var(--dark-background);
+  border-radius: 6px;
+  margin-bottom: 15px;
+  position: relative;
+  overflow: hidden;
+}
+
+.description {
+  height: 200px;
+  width: 300px;
+  background: var(--dark-background);
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+.infoTitle::after,
+.officialTrailer::after,
+.description::after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  transform: translateX(-100%);
+  background-image: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0,
+    rgba(255, 255, 255, 0.05) 40%,
+    rgba(255, 255, 255, 0.08) 60%,
+    rgba(255, 255, 255, 0)
+  );
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "./MovieVideos.module.css";
 import axios from "axios";
+import MovieVideoLoader from "../MovieVideoLoader/MovieVideoLoader";
 
 const MovieVideos = ({ id }) => {
   const [trailerId, setTrailerId] = useState();
@@ -60,11 +61,11 @@ const MovieVideos = ({ id }) => {
 
   console.log(trailerId);
 
-  if (!trailer || !description) return "";
+  if (!trailer || !description) return <MovieVideoLoader />;
 
   return (
     <div className={styles.wrapper}>
-      <div className={styles.container}>
+      <div className={styles.container} style={{ minHeight: 300 }}>
         <p className={styles.title}>Watch the Official Trailer</p>
         <div className={styles.flexContainer}>
           <video src={trailer} controls className={styles.videoTrailer} />
