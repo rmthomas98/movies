@@ -6,6 +6,8 @@ import "swiper/swiper.min.css";
 import "swiper/swiper-bundle.min.css";
 import SwiperCore, { Navigation, FreeMode } from "swiper";
 import { Link } from "react-router-dom";
+import SwiperLoader from '../SwiperLoader/SwiperLoader'
+import MoreLikeThisLoader from "../MoreLikeThisLoader/MoreLikeThisLoader";
 
 const MoreLikeThis = ({ id }) => {
   const [ids, setIds] = useState();
@@ -66,7 +68,7 @@ const MoreLikeThis = ({ id }) => {
 
   console.log(data);
 
-  if (!data) return "";
+  if (!data) return <MoreLikeThisLoader />
 
   return (
     <div className={styles.wrapper}>

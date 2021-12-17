@@ -40,7 +40,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #ffffff10;
+  background: var(--dark-background);
 }
 
 .image {

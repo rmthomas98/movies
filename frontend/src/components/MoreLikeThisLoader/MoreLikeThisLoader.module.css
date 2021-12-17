@@ -1,6 +1,29 @@
+.title {
+  font-size: 150%;
+  font-weight: 200;
+  display: flex;
+  align-items: center;
+}
+
+.title::before {
+  margin-right: 5px;
+  height: 35px;
+  width: 4px;
+  border-radius: 10px;
+  content: "";
+  display: block;
+  background: var(--red);
+}
+
 .container {
-  border-bottom: 1px solid #ffffff28;
+  max-width: 1400px;
+  margin: auto;
+}
+
+.wrapper {
   padding: 30px;
+  padding-top: 0px;
+  padding-bottom: 50px;
 }
 
 .movieContainer {
@@ -11,11 +34,13 @@
   min-height: 300px;
   max-height: 300px;
   cursor: pointer;
-  margin: 40px 0px;
+  margin: 20px 0px;
   position: relative;
   min-width: 200px;
-  position: relative;
   background: var(--dark-background);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .movieContainer::after {
@@ -42,3 +67,5 @@
     transform: translateX(100%);
   }
 }
+
+
