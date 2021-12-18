@@ -54,3 +54,36 @@
   font-size: 80%;
   margin-right: 20px;
 }
+
+.bar {
+  width: 15px;
+  height: 1px;
+  background: #fff;
+  content: "";
+}
+
+.DropDownNavContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 11px;
+  cursor: pointer;
+}
+
+.dropDownMenuWrapper {
+  position: fixed;
+  width: 100%;
+  top: 65px;
+  left: 0;
+  padding: 0px 30px;
+  transition: 0.5s;
+  transform-origin: top;
+}
+
+.dropDownMenuContainer {
+  max-width: 1400px;
+  margin: auto;
+  background: var(--dark-background);
+  border-radius: 12px;
+  padding: 10px;
+}
