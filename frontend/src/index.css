@@ -61,3 +61,17 @@ body {
 .react-read-more-read-less-more:hover {
   color: #8aa5ff;
 }
+
+@media only screen and (max-width: 500px) {
+  .sub-header {
+    font-size: 100%;
+  }
+  .small-title {
+    font-size: 110%;
+    font-weight: 300;
+  }
+  .medium-description {
+    font-weight: 200;
+    font-size: 80%;
+  }
+}

@@ -31,3 +31,18 @@
 .footerTitle {
   font-weight: 600;
 }
+
+@media only screen and (max-width: 500px) {
+  .contentContainer {
+    flex-direction: column;
+    height: 100px;
+    justify-content: space-between;
+  }
+  .copyright {
+    position: initial;
+    text-align: center;
+    left: none;
+    transform: none;
+    order: 3;
+  }
+}

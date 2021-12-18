@@ -5,14 +5,15 @@ import { Swiper, SwiperSlide } from "swiper/react/swiper-react.js";
 import "swiper/swiper.min.css";
 import "swiper/swiper-bundle.min.css";
 
-const SwiperLoader = () => {
+const SwiperLoader = ({ width }) => {
   return (
     <div className={styles.container}>
       <Swiper
         slidesPerView={"auto"}
-        spaceBetween={30}
+        spaceBetween={width > 500 ? 30 : 15}
         className={styles.swiperContainer}
-        navigation={true}
+        navigation={width > 500 ? true : false}
+        freeMode={true}
       >
         <SwiperSlide className={styles.movieContainer}></SwiperSlide>
         <SwiperSlide className={styles.movieContainer}></SwiperSlide>

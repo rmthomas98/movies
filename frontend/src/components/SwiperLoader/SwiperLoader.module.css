@@ -42,3 +42,19 @@
     transform: translateX(100%);
   }
 }
+
+/* QUERIES */
+
+@media only screen and (max-width: 500px) {
+  .container {
+    padding: 15px;
+  }
+  .movieContainer {
+    min-height: 150px;
+    max-height: 150px;
+    max-width: 100px;
+    min-width: 100px;
+    border-radius: 6px;
+    margin: 15px 0px;
+  }
+}

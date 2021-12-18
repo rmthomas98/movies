@@ -179,3 +179,15 @@
 .dropDownNavLink:hover {
   color: #fff;
 }
+
+@media only screen and (max-width: 500px) {
+  .title {
+    display: none;
+  }
+  .container {
+    padding: 12px 15px;
+  }
+  .navLink {
+    display: none;
+  }
+}

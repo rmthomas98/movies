@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.3.6,
+* Autoprefixer: v10.3.1
+* Browsers: last 4 version
+*/
+
 .searchWrapper {
   width: 50%;
   position: relative;
@@ -7,21 +14,51 @@
 
 .container {
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+}
+
+.inputContainer {
+  width: 100%;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  overflow: hidden;
+  background: #fff;
 }
 
 .searchInput {
   width: 100%;
   padding: 7px;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
   outline: none;
   background: #fff;
   border: none;
   font-family: "Inter", sans-serif;
   font-size: 70%;
   font-weight: 400;
+}
+
+.searchInput::-webkit-input-placeholder {
+  color: #000;
+  opacity: 0.8;
+}
+
+.searchInput::-moz-placeholder {
+  color: #000;
+  opacity: 0.8;
+}
+
+.searchInput:-ms-input-placeholder {
+  color: #000;
+  opacity: 0.8;
+}
+
+.searchInput::-ms-input-placeholder {
+  color: #000;
+  opacity: 0.8;
 }
 
 .searchInput::placeholder {
@@ -40,20 +77,26 @@
   max-height: 90vh;
   overflow-y: auto;
   overflow-x: hidden;
+  -webkit-box-shadow: 0px 10px 30px #000000a6;
   box-shadow: 0px 10px 30px #000000a6;
 }
 
 .searchIconContainer {
   background: #fff;
-  padding: 3px 10px;
+  font-size: 70%;
+  padding: 4px 10px;
   padding-right: 2px;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
 }
 
 .resultContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   padding: 10px;
+  -webkit-transition: 0.1s all;
+  -o-transition: 0.1s all;
   transition: 0.1s all;
 }
 
@@ -76,6 +119,7 @@
   width: 50px;
   min-height: 71px;
   max-height: 71px;
+  -o-object-fit: cover;
   object-fit: cover;
   border-radius: 3px;
   margin-right: 10px;
@@ -85,10 +129,20 @@
 .noResultContainer {
   height: 100%;
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
   min-height: 200px;
+}
+
+.film {
+  margin-right: 10px;
 }
 
 .noResultContainer:hover {
@@ -98,4 +152,18 @@
 .link {
   color: #fff;
   text-decoration: none;
+}
+
+@media only screen and (max-width: 500px) {
+  .searchWrapper {
+    width: 100%;
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+  .film {
+    margin-right: 0px;
+  }
+  .resultsContainer {
+    max-height: 60vh;
+  }
 }

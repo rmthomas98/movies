@@ -18,7 +18,7 @@ const Nav = () => {
     <div className={styles.container}>
       <div className={styles.contentContainer}>
         <div style={{ display: "flex", alignItems: "center" }}>
-          <Film style={{ marginRight: 10 }} color="#d31027" />
+          <Film className={styles.film} color="#d31027" />
           <Link to="/" className={styles.title}>
             MovieExplorer
           </Link>
@@ -26,10 +26,10 @@ const Nav = () => {
         <Search />
         <div className={styles.navLinks}>
           <NavLink to="/" className={styles.navLink}>
-            <House />
+            <House style={{ position: "relative", top: 1 }} />
           </NavLink>
           <NavLink to="/explore/popular" className={styles.navLink}>
-            <Binoculars />
+            <Binoculars style={{ position: "relative", top: 1 }} />
           </NavLink>
           <div
             ref={dropDownNavSelector}

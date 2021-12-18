@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.3.6,
+* Autoprefixer: v10.3.1
+* Browsers: last 4 version
+*/
+
 .container {
   padding: 100px 30px;
   background: #101014;
@@ -5,22 +12,55 @@
 }
 
 .inputContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin: auto;
   margin-top: 35px;
+  width: 100%;
+  max-width: 550px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #ffffff13;
 }
 
 .textInput {
-  background: #ffffff13;
+  background: transparent;
   padding: 12px;
-  border-top-left-radius: 12px;
-  border-bottom-left-radius: 12px;
   border: none;
   width: 100%;
-  max-width: 400px;
   font-family: "Inter", sans-serif;
   color: #ffffffdc;
   outline: none;
   font-size: 75%;
   font-weight: 200;
+}
+
+::-webkit-input-placeholder {
+  opacity: 1;
+  font-family: "Inter", sans-serif;
+  color: #ffffffdc;
+}
+
+::-moz-placeholder {
+  opacity: 1;
+  font-family: "Inter", sans-serif;
+  color: #ffffffdc;
+}
+
+:-ms-input-placeholder {
+  opacity: 1;
+  font-family: "Inter", sans-serif;
+  color: #ffffffdc;
+}
+
+::-ms-input-placeholder {
+  opacity: 1;
+  font-family: "Inter", sans-serif;
+  color: #ffffffdc;
 }
 
 ::placeholder {
@@ -35,15 +75,41 @@
   font-family: "Inter", sans-serif;
   color: #ffffffdc;
   padding: 12px 30px;
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
   border: none;
-  border-top-right-radius: 12px;
-  border-bottom-right-radius: 12px;
+  background: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    from(var(--red)),
+    to(var(--light-red))
+  );
+  background: -o-linear-gradient(left, var(--red), var(--light-red));
   background: linear-gradient(to right, var(--red), var(--light-red));
   cursor: pointer;
   opacity: 0.8;
+  -webkit-transition: 0.2s;
+  -o-transition: 0.2s;
   transition: 0.2s;
 }
 
 .signUpBtn:hover {
   opacity: 1;
+}
+
+@media only screen and (max-width: 500px) {
+  .container {
+    padding: 30px 15px;
+  }
+  .textInput {
+    width: 100%;
+    font-size: 65%;
+    font-weight: 200;
+  }
+  .signUpBtn {
+    font-size: 65%;
+    font-weight: 300;
+  }
 }

@@ -62,15 +62,15 @@ const PictureWinner = ({ width }) => {
     getMetaData();
   }, [ids]);
 
-  if (!data) return <SwiperLoader />;
+  if (!data) return <SwiperLoader width={width} />;
 
   return (
     <div className={styles.container}>
       <p className="sub-header">Best Picture Winners</p>
       <Swiper
         slidesPerView={"auto"}
-        spaceBetween={15}
-        navigation={true}
+        spaceBetween={width > 500 ? 30 : 15}
+        navigation={width > 500 ? true : false}
         freeMode={true}
       >
         {data

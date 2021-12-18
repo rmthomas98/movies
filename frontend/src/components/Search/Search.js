@@ -64,13 +64,15 @@ const Search = () => {
               />
             </svg>
           </div>
-          <input
-            id="search-input"
-            type="text"
-            placeholder="Search Movies..."
-            className={styles.searchInput}
-            onChange={(e) => setText(e.target.value)}
-          />
+          <div className={styles.inputContainer}>
+            <input
+              id="search-input"
+              type="text"
+              placeholder="Search Movies..."
+              className={styles.searchInput}
+              onChange={(e) => setText(e.target.value)}
+            />
+          </div>
         </div>
         {data ? (
           <div className={styles.resultsContainer}>
