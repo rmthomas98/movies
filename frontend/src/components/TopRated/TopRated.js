@@ -17,7 +17,7 @@ const options = {
   },
 };
 
-const TopRated = () => {
+const TopRated = ({ width }) => {
   const [ids, setIds] = useState();
   const [data, setData] = useState();
 
@@ -52,7 +52,7 @@ const TopRated = () => {
           element.ratings.rating,
           element.popularity.image.url,
           element.title.id.split("/")[2],
-          element.title.title
+          element.title.title,
         ];
       });
       console.log(dataList);
@@ -69,8 +69,8 @@ const TopRated = () => {
       <p className="sub-header">Top Rated Movies</p>
       <Swiper
         slidesPerView={"auto"}
-        navigation={true}
-        spaceBetween={30}
+        spaceBetween={width > 500 ? 30 : 15}
+        navigation={width > 500 ? true : false}
         freeMode={true}
       >
         {data

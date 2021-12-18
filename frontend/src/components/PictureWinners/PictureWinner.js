@@ -17,7 +17,7 @@ const options = {
   },
 };
 
-const PictureWinner = () => {
+const PictureWinner = ({ width }) => {
   const [ids, setIds] = useState();
   const [data, setData] = useState();
 
@@ -50,7 +50,11 @@ const PictureWinner = () => {
     const getMetaData = async () => {
       const response = await axios.request(metaDataOptions);
       const dataList = Object.values(response.data).map((element) => {
-        return [element.popularity.image.url, element.title.id.split("/")[2], element.title.title];
+        return [
+          element.popularity.image.url,
+          element.title.id.split("/")[2],
+          element.title.title,
+        ];
       });
       console.log(dataList);
       setData(dataList);
@@ -65,8 +69,8 @@ const PictureWinner = () => {
       <p className="sub-header">Best Picture Winners</p>
       <Swiper
         slidesPerView={"auto"}
+        spaceBetween={15}
         navigation={true}
-        spaceBetween={30}
         freeMode={true}
       >
         {data

@@ -9,13 +9,16 @@ import ExplorePictureWinners from "./components/ExplorePictureWinners/ExplorePic
 import ExploreComingSoon from "./components/ExploreComingSoon/ExploreComingSoon";
 import ExploreGenre from "./components/ExploreGenre/ExploreGenre";
 import MovieViewer from "./components/MovieViewer/MovieViewer";
+import { useWindowWidth } from "@react-hook/window-size";
 
 const App = () => {
+  const width = useWindowWidth();
+
   return (
     <div className="App">
       <Nav />
       <Routes>
-        <Route path="/" element={<FrontPage />} />
+        <Route path="/" element={<FrontPage width={width} />} />
         <Route path="explore" element={<Explore />}>
           <Route path="popular" element={<ExplorePopular />} />
           <Route path="top-rated" element={<ExploreTopRated />} />

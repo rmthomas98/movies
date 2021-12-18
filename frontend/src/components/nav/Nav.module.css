@@ -13,6 +13,7 @@
   align-items: center;
   max-width: 1400px;
   margin: auto;
+  position: relative;
 }
 
 .title {
@@ -60,6 +61,28 @@
   height: 1px;
   background: #fff;
   content: "";
+  transition: 0.2s;
+  pointer-events: none;
+}
+
+.barOneActive {
+  width: 15px;
+  height: 1px;
+  background: #fff;
+  content: "";
+  transform: rotate(45deg) translateY(3.6px) translateX(3.3px);
+}
+
+.barTwoActive {
+  opacity: 0;
+}
+
+.barThreeActive {
+  width: 15px;
+  height: 1px;
+  background: #fff;
+  content: "";
+  transform: rotate(-45deg) translateY(-3.6px) translateX(3.3px);
 }
 
 .DropDownNavContainer {
@@ -68,22 +91,91 @@
   justify-content: space-between;
   height: 11px;
   cursor: pointer;
+  position: relative;
 }
 
 .dropDownMenuWrapper {
   position: fixed;
   width: 100%;
-  top: 65px;
+  top: 60px;
   left: 0;
   padding: 0px 30px;
-  transition: 0.5s;
+  transition: 0.35s cubic-bezier(0.17, 0.67, 0.34, 1.3);
   transform-origin: top;
 }
 
 .dropDownMenuContainer {
+  position: absolute;
+  width: 100%;
   max-width: 1400px;
-  margin: auto;
+  top: 50px;
+  padding: 20px;
+  transition: 0.35s cubic-bezier(0.17, 0.67, 0.34, 1.3);
+  transform-origin: top;
   background: var(--dark-background);
-  border-radius: 12px;
-  padding: 10px;
+  box-shadow: 0px 10px 30px #000000a6;
+  border-radius: 6px;
+  display: flex;
+}
+
+.navTitle {
+  font-size: 130%;
+  font-weight: 200;
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.navTitle::before {
+  margin-right: 5px;
+  height: 28px;
+  width: 4px;
+  border-radius: 10px;
+  content: "";
+  display: block;
+  background: var(--red);
+}
+
+.mainLinksContainer,
+.topListsContainer {
+  transition: 0.35s;
+}
+
+.mainLinksContainer,
+.topListsContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.genresContainer {
+  width: 100%;
+}
+
+.genreFlexContainer {
+  display: flex;
+}
+
+.genreLinksContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.dropDownNavLink,
+.dropDownNavLinkActive {
+  color: var(--gray);
+  text-decoration: none;
+  font-size: 80%;
+  font-weight: 300;
+  padding-bottom: 5px;
+  transition: 0.2s all;
+}
+
+.dropDownNavLinkActive {
+  color: var(--red);
+}
+
+.dropDownNavLink:hover {
+  color: #fff;
 }

@@ -76,7 +76,13 @@ const Search = () => {
           <div className={styles.resultsContainer}>
             {data.results ? (
               data.results.map((element) => {
-                if (element.episode || !element.image || element.name || element.titleType === 'video' || element.titleType === 'short')
+                if (
+                  element.episode ||
+                  !element.image ||
+                  element.name ||
+                  element.titleType === "video" ||
+                  element.titleType === "short"
+                )
                   return "";
                 return (
                   <Link

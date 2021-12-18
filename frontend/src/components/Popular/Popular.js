@@ -18,7 +18,7 @@ const titleOptions = {
   },
 };
 
-const Popular = () => {
+const Popular = ({ width }) => {
   const [popularTitles, setPopularTitles] = useState();
   const [data, setData] = useState();
 
@@ -58,14 +58,16 @@ const Popular = () => {
 
   if (!data) return <SwiperLoader />;
 
+  console.log(width);
+
   return (
     <div className={styles.container}>
       <p className="sub-header">Most Popular Movies</p>
       <Swiper
         slidesPerView={"auto"}
-        spaceBetween={30}
+        spaceBetween={width > 500 ? 30 : 15}
         className={styles.swiperContainer}
-        navigation={true}
+        navigation={width > 500 ? true : false}
         freeMode={true}
       >
         {data

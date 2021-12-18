@@ -3,6 +3,7 @@ import styles from "./ExplorePictureWinners.module.css";
 import axios from "axios";
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import { Link } from "react-router-dom";
 
 const options = {
   method: "GET",
@@ -18,9 +19,9 @@ const ExplorePictureWinners = () => {
   const [data, setData] = useState();
 
   useEffect(() => {
-    window.scrollTo(0,0);
-    document.title = 'Best Picture Winners'
-  })
+    window.scrollTo(0, 0);
+    document.title = "Best Picture Winners";
+  });
 
   const metaDataOptions = {
     method: "GET",
@@ -48,7 +49,11 @@ const ExplorePictureWinners = () => {
     const getMetaData = async () => {
       const response = await axios.request(metaDataOptions);
       const dataList = Object.values(response.data).map((element) => {
-        return element.popularity.image.url;
+        return [
+          element.popularity.image.url,
+          element.title.title,
+          element.title.id.split("/")[2],
+        ];
       });
       console.log(dataList);
       setData(dataList);
@@ -76,7 +81,17 @@ const ExplorePictureWinners = () => {
         ? data.map((element) => {
             return (
               <div className={styles.movieContainer}>
-                <img src={element} className={styles.image} alt="movie cover" />
+                <Link
+                  to={`/movie-viewer/${element[2]}`}
+                  state={{ id: element[2] }}
+                  className={styles.link}
+                >
+                  <img
+                    src={element[0]}
+                    className={styles.image}
+                    alt={element[1]}
+                  />
+                </Link>
               </div>
             );
           })
