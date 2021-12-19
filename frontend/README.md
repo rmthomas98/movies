@@ -1,3 +1,7 @@
-# Created with React.
+# Created with React
 
-I went with css modules for the styling.
+All information is from the IMDb Rapid api
+link: https://rapidapi.com/apidojo/api/imdb8
+
+Styled with css modules.
+
