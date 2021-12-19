@@ -66,10 +66,10 @@ const ExplorePictureWinners = () => {
       <div className={styles.loaderContainer}>
         <Loader
           className={styles.loader}
-          type="Puff"
+          type="Oval"
           color="#ea384d"
-          height={75}
-          width={75}
+          height={60}
+          width={60}
         />
       </div>
     );
@@ -77,6 +77,7 @@ const ExplorePictureWinners = () => {
 
   return (
     <div className={styles.container}>
+      <p className={styles.title}>Best Picture Winners</p>
       {data
         ? data.map((element) => {
             return (

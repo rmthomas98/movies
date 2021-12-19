@@ -3,7 +3,7 @@ import styles from "./ExploreComingSoon.module.css";
 import axios from "axios";
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-import {Link} from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const options = {
   method: "GET",
@@ -30,9 +30,9 @@ const ExploreComingSoon = () => {
   };
 
   useEffect(() => {
-    window.scrollTo(0,0)
-    document.title = 'Movies Coming Soon'
-  },[])
+    window.scrollTo(0, 0);
+    document.title = "Movies Coming Soon";
+  }, []);
 
   useEffect(() => {
     const getIds = async () => {
@@ -52,7 +52,11 @@ const ExploreComingSoon = () => {
       const response = await axios.request(metaDataOptions);
       console.log(Object.values(response.data));
       const metaList = Object.values(response.data).map((element) => {
-        return [element.popularity.image?.url, element.title.title, element.title.id.split('/')[2] ];
+        return [
+          element.popularity.image?.url,
+          element.title.title,
+          element.title.id.split("/")[2],
+        ];
       });
       setData(metaList);
     };
@@ -64,10 +68,10 @@ const ExploreComingSoon = () => {
       <div className={styles.loaderContainer}>
         <Loader
           className={styles.loader}
-          type="Puff"
+          type="Oval"
           color="#ea384d"
-          height={75}
-          width={75}
+          height={60}
+          width={60}
         />
       </div>
     );
@@ -75,12 +79,21 @@ const ExploreComingSoon = () => {
 
   return (
     <div className={styles.container}>
+      <p className={styles.title}>Coming Soon</p>
       {data
         ? data.map((element) => {
             return (
               <div className={styles.movieContainer}>
-                <Link to={`/movie-viewer/${element[2]}`} state={{id: element[2]}} className={styles.link}>
-                <img src={element[0]} className={styles.image} alt={element[1]} />
+                <Link
+                  to={`/movie-viewer/${element[2]}`}
+                  state={{ id: element[2] }}
+                  className={styles.link}
+                >
+                  <img
+                    src={element[0]}
+                    className={styles.image}
+                    alt={element[1]}
+                  />
                 </Link>
               </div>
             );

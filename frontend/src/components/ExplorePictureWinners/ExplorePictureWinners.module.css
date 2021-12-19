@@ -56,3 +56,62 @@
   font-size: 80%;
   text-decoration: none;
 }
+
+.title {
+  display: none;
+}
+
+@media only screen and (max-width: 500px) {
+  .container {
+    padding-left: 0px;
+    padding-top: 50px;
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 15px;
+    place-items: center;
+    position: relative;
+  }
+
+  .movieContainer {
+    min-height: 150px;
+    max-height: 150px;
+    max-width: 100px;
+    min-width: 100px;
+    border-radius: 6px;
+  }
+  .image {
+    height: 100%;
+    min-height: 150px;
+    max-height: 150px;
+    max-width: 100px;
+    min-width: 100px;
+    opacity: 1;
+    transform: scale(1.03);
+  }
+
+  .image:hover {
+    transform: scale(1.03);
+    opacity: 1;
+  }
+  .title {
+    font-size: 120%;
+    font-weight: 200;
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .title::before {
+    margin-right: 5px;
+    height: 28px;
+    width: 4px;
+    border-radius: 10px;
+    content: "";
+    display: block;
+    background: var(--red);
+  }
+}

@@ -77,10 +77,10 @@ const ExploreGenre = () => {
       <div className={styles.loaderContainer}>
         <Loader
           className={styles.loader}
-          type="Puff"
+          type="Oval"
           color="#ea384d"
-          height={75}
-          width={75}
+          height={60}
+          width={60}
         />
       </div>
     );
@@ -88,6 +88,9 @@ const ExploreGenre = () => {
 
   return (
     <div className={styles.container}>
+      <p className={styles.title}>
+        {location.state.genre.split("-").join(" ")}
+      </p>
       {data
         ? data.map((element) => {
             return (

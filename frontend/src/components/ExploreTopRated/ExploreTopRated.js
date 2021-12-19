@@ -3,7 +3,7 @@ import styles from "./ExploreTopRated.module.css";
 import axios from "axios";
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-import {Link} from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const options = {
   method: "GET",
@@ -29,9 +29,9 @@ const ExploreTopRated = () => {
   };
 
   useEffect(() => {
-    window.scrollTo(0,0)
-    document.title = 'Top Rated'
-  },[])
+    window.scrollTo(0, 0);
+    document.title = "Top Rated";
+  }, []);
 
   useEffect(() => {
     const getIds = async () => {
@@ -50,7 +50,12 @@ const ExploreTopRated = () => {
     const getMetaData = async () => {
       const response = await axios.request(metaDataOptions);
       const dataList = Object.values(response.data).map((element) => {
-        return [element.ratings.rating, element.popularity.image.url, element.title.title, element.title.id.split('/')[2]];
+        return [
+          element.ratings.rating,
+          element.popularity.image.url,
+          element.title.title,
+          element.title.id.split("/")[2],
+        ];
       });
       console.log(dataList);
       setData(dataList);
@@ -61,29 +66,34 @@ const ExploreTopRated = () => {
   if (!data) {
     return (
       <div className={styles.loaderContainer}>
-      <Loader
-      className={styles.loader}
-      type="Puff"
-      color="#ea384d"
-      height={75}
-      width={75}
-    />
-    </div>
-    )
+        <Loader
+          className={styles.loader}
+          type="Oval"
+          color="#ea384d"
+          height={60}
+          width={60}
+        />
+      </div>
+    );
   }
 
   return (
     <div className={styles.container}>
+      <p className={styles.title}>Top Rated</p>
       {data
         ? data.map((element) => {
             return (
               <div className={styles.movieContainer}>
-                <Link to={`/movie-viewer/${element[3]}`} state={{id: element[3]}} className={styles.link}>
-                <img
-                  src={element[1]}
-                  className={styles.image}
-                  alt={element[2]}
-                />
+                <Link
+                  to={`/movie-viewer/${element[3]}`}
+                  state={{ id: element[3] }}
+                  className={styles.link}
+                >
+                  <img
+                    src={element[1]}
+                    className={styles.image}
+                    alt={element[2]}
+                  />
                 </Link>
               </div>
             );
