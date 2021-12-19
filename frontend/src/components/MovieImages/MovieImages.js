@@ -37,7 +37,7 @@ const MovieImages = ({ id, width }) => {
 
   SwiperCore.use([Navigation, FreeMode]);
 
-  if (!images) return <MovieImagesLoader />;
+  if (!images) return <MovieImagesLoader width={width} />;
 
   return (
     <div className={styles.wrapper}>

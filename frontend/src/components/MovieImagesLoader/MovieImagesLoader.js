@@ -5,7 +5,7 @@ import "swiper/swiper.min.css";
 import "swiper/swiper-bundle.min.css";
 import SwiperCore, { Navigation, FreeMode } from "swiper";
 
-const MovieImagesLoader = () => {
+const MovieImagesLoader = ({ width }) => {
   SwiperCore.use([Navigation, FreeMode]);
 
   return (
@@ -14,8 +14,8 @@ const MovieImagesLoader = () => {
         <p className={styles.title}>Photos</p>
         <Swiper
           slidesPerView={"auto"}
-          navigation={true}
-          spaceBetween={20}
+          navigation={width > 500 ? true : false}
+          spaceBetween={width > 500 ? 30 : 15}
           freeMode={true}
         >
           <SwiperSlide className={styles.imageContainer}></SwiperSlide>

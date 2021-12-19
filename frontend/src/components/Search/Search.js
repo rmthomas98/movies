@@ -121,10 +121,10 @@ const Search = () => {
             <div className={styles.loaderContainer}>
               <Loader
                 className={styles.loader}
-                type="ThreeDots"
+                type="Oval"
                 color="#ea384d"
-                height={50}
-                width={50}
+                height={30}
+                width={30}
               />
             </div>
           </div>

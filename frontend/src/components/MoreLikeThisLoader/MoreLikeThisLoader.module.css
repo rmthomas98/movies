@@ -68,4 +68,33 @@
   }
 }
 
+@media only screen and (max-width: 500px) {
+  .wrapper {
+    padding: 15px;
+    padding-bottom: 50px;
+  }
+  .movieContainer {
+    min-height: 150px;
+    max-height: 150px;
+    max-width: 100px;
+    min-width: 100px;
+    border-radius: 6px;
+    margin: 15px 0px;
+  }
+  .title {
+    font-size: 120%;
+    font-weight: 200;
+    display: flex;
+    align-items: center;
+  }
 
+  .title::before {
+    margin-right: 5px;
+    height: 28px;
+    width: 4px;
+    border-radius: 10px;
+    content: "";
+    display: block;
+    background: var(--red);
+  }
+}

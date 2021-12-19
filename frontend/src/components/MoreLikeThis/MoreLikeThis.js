@@ -6,10 +6,10 @@ import "swiper/swiper.min.css";
 import "swiper/swiper-bundle.min.css";
 import SwiperCore, { Navigation, FreeMode } from "swiper";
 import { Link } from "react-router-dom";
-import SwiperLoader from '../SwiperLoader/SwiperLoader'
+import SwiperLoader from "../SwiperLoader/SwiperLoader";
 import MoreLikeThisLoader from "../MoreLikeThisLoader/MoreLikeThisLoader";
 
-const MoreLikeThis = ({ id }) => {
+const MoreLikeThis = ({ id, width }) => {
   const [ids, setIds] = useState();
   const [data, setData] = useState();
 
@@ -68,16 +68,16 @@ const MoreLikeThis = ({ id }) => {
 
   console.log(data);
 
-  if (!data) return <MoreLikeThisLoader />
+  if (!data) return <MoreLikeThisLoader width={width} />;
 
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
         <p className={styles.title}>More Like This</p>
         <Swiper
-          navigation={true}
+          navigation={width > 500 ? true : false}
           slidesPerView={"auto"}
-          spaceBetween={30}
+          spaceBetween={width > 500 ? 30 : 15}
           freeMode={true}
         >
           {data.map((element) => {

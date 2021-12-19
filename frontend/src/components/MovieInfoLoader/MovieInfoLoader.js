@@ -9,6 +9,7 @@ const MovieInfoLoader = () => {
         <div className={styles.flexContainer}>
           <div className={styles.imgContainer}></div>
           <div className={styles.infoContainer}>
+            <div className={styles.mobileTitle}></div>
             <div className={styles.smallFlexContainer}>
               <div className={styles.info}></div>
               <div className={styles.info}></div>

@@ -190,4 +190,27 @@
   .navLink {
     display: none;
   }
+  .dropDownMenuContainer {
+    flex-direction: column;
+  }
+  .navTitle {
+    font-size: 100%;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  .navTitle::before {
+    margin-right: 5px;
+    height: 25px;
+    width: 4px;
+    border-radius: 10px;
+    content: "";
+    display: block;
+    background: var(--red);
+  }
+  .topListsContainer,
+  .genresContainer {
+    margin-top: 20px;
+  }
 }

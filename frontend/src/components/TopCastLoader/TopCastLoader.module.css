@@ -92,3 +92,31 @@
     transform: translateX(100%);
   }
 }
+
+@media only screen and (max-width: 500px) {
+  .wrapper {
+    padding: 15px;
+    padding-bottom: 50px;
+  }
+  .title {
+    font-size: 120%;
+    font-weight: 200;
+    display: flex;
+    align-items: center;
+    padding-bottom: 20px;
+  }
+  .title::before {
+    margin-right: 5px;
+    height: 28px;
+    width: 4px;
+    border-radius: 10px;
+    content: "";
+    display: block;
+    background: var(--red);
+  }
+  .imageContainer {
+    min-width: 70px;
+    max-width: 70px;
+    height: 70px;
+  }
+}

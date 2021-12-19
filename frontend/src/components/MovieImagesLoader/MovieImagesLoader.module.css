@@ -59,3 +59,28 @@
     transform: translateX(100%);
   }
 }
+
+@media only screen and (max-width: 500px) {
+  .title {
+    font-size: 120%;
+    font-weight: 200;
+    display: flex;
+    align-items: center;
+    padding-bottom: 20px;
+  }
+
+  .title::before {
+    margin-right: 5px;
+    height: 28px;
+    width: 4px;
+    border-radius: 10px;
+    content: "";
+    display: block;
+    background: var(--red);
+  }
+  .wrapper {
+    padding: 15px;
+    padding-top: 0px;
+    padding-bottom: 50px;
+  }
+}
