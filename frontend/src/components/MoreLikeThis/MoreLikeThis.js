@@ -75,7 +75,7 @@ const MoreLikeThis = ({ id, width }) => {
       <div className={styles.container}>
         <p className={styles.title}>More Like This</p>
         <Swiper
-          navigation={width > 500 ? true : false}
+          navigation={width > 700 ? true : false}
           slidesPerView={"auto"}
           spaceBetween={width > 500 ? 30 : 15}
           freeMode={true}

@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.3.6,
+* Autoprefixer: v10.3.1
+* Browsers: last 4 version
+*/
+
 .videoTrailer {
   max-height: 500px;
   max-width: 1000px;
@@ -17,6 +24,8 @@
 }
 
 .flexContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
@@ -27,14 +36,19 @@
 
 .description {
   font-weight: 200;
-  font-size: 90%;
+  font-size: 80%;
   line-height: 1.5;
+  max-width: 800px;
 }
 
 .title {
   font-size: 150%;
   font-weight: 200;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   padding-bottom: 20px;
 }
@@ -61,36 +75,27 @@
   margin-top: 15px;
   margin-bottom: 15px;
   border: 1px solid #ffffff28;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
   border-radius: 10px;
   padding: 5px 10px;
 }
 
-@media only screen and (max-width: 500px) {
-  .wrapper {
-    padding: 15px;
-    padding-top: 0px;
-    padding-bottom: 50px;
+@media only screen and (max-width: 1400px) {
+  .searchWrapper {
+    width: 100%;
   }
-  .title {
-    font-size: 120%;
-    font-weight: 200;
-    display: flex;
-    align-items: center;
-    padding-bottom: 20px;
-  }
-
-  .title::before {
-    margin-right: 5px;
-    height: 28px;
-    width: 4px;
-    border-radius: 10px;
-    content: "";
-    display: block;
-    background: var(--red);
+  .film {
+    margin-right: 0px;
   }
   .flexContainer {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
   }
   .videoTrailer {
@@ -113,6 +118,76 @@
     margin-top: 10px;
     margin-bottom: 10px;
     border: 1px solid #ffffff28;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    border-radius: 8px;
+    padding: 5px 10px;
+  }
+  .videoTitle {
+    font-size: 100%;
+    font-weight: 400;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .wrapper {
+    padding: 15px;
+    padding-top: 0px;
+    padding-bottom: 50px;
+  }
+  .title {
+    font-size: 120%;
+    font-weight: 200;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding-bottom: 20px;
+  }
+
+  .title::before {
+    margin-right: 5px;
+    height: 28px;
+    width: 4px;
+    border-radius: 10px;
+    content: "";
+    display: block;
+    background: var(--red);
+  }
+  .flexContainer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+  .videoTrailer {
+    width: 100%;
+    border-radius: 12px;
+  }
+  .bioContainer {
+    margin-top: 15px;
+    margin-left: 0px;
+  }
+  .description {
+    font-weight: 200;
+    font-size: 80%;
+    line-height: 1.5;
+  }
+  .movieTitle {
+    text-transform: uppercase;
+    font-weight: 200;
+    font-size: 65%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ffffff28;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
     width: fit-content;
     border-radius: 8px;
     padding: 5px 10px;

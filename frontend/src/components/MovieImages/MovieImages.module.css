@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.3.6,
+* Autoprefixer: v10.3.1
+* Browsers: last 4 version
+*/
+
 .container {
   margin: auto;
   max-width: 1400px;
@@ -18,13 +25,18 @@
   width: 100%;
   height: 100%;
   min-height: 140px;
+  -o-object-fit: cover;
   object-fit: cover;
 }
 
 .title {
   font-size: 150%;
   font-weight: 200;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   padding-bottom: 20px;
 }
@@ -60,7 +72,11 @@
   .title {
     font-size: 120%;
     font-weight: 200;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     padding-bottom: 20px;
   }

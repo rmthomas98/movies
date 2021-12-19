@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.3.6,
+* Autoprefixer: v10.3.1
+* Browsers: last 4 version
+*/
+
 .wrapper {
   padding: 30px;
   padding-top: 0px;
@@ -12,7 +19,11 @@
 .title {
   font-size: 150%;
   font-weight: 200;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   padding-bottom: 20px;
 }
@@ -28,6 +39,8 @@
 }
 
 .flexContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
@@ -37,8 +50,14 @@
   max-width: 800px;
   background: var(--dark-background);
   border-radius: 12px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 }
 
@@ -84,7 +103,25 @@
   width: 100%;
   left: 0;
   top: 0;
+  -webkit-transform: translateX(-100%);
+  -ms-transform: translateX(-100%);
   transform: translateX(-100%);
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    color-stop(0, rgba(255, 255, 255, 0)),
+    color-stop(40%, rgba(255, 255, 255, 0.05)),
+    color-stop(60%, rgba(255, 255, 255, 0.08)),
+    to(rgba(255, 255, 255, 0))
+  );
+  background-image: -o-linear-gradient(
+    left,
+    rgba(255, 255, 255, 0) 0,
+    rgba(255, 255, 255, 0.05) 40%,
+    rgba(255, 255, 255, 0.08) 60%,
+    rgba(255, 255, 255, 0)
+  );
   background-image: linear-gradient(
     90deg,
     rgba(255, 255, 255, 0) 0,
@@ -92,12 +129,42 @@
     rgba(255, 255, 255, 0.08) 60%,
     rgba(255, 255, 255, 0)
   );
+  -webkit-animation: shimmer 2s infinite;
   animation: shimmer 2s infinite;
+}
+
+@-webkit-keyframes shimmer {
+  100% {
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+  }
 }
 
 @keyframes shimmer {
   100% {
+    -webkit-transform: translateX(100%);
     transform: translateX(100%);
+  }
+}
+
+@media only screen and (max-width: 1400px) {
+  .flexContainer {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+  .infoContainer {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .videoTrailer {
+    height: 325px;
+  }
+  .infoContainer {
+    display: none;
   }
 }
 
@@ -110,11 +177,14 @@
   .title {
     font-size: 120%;
     font-weight: 200;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     padding-bottom: 20px;
   }
-
   .title::before {
     margin-right: 5px;
     height: 28px;
@@ -124,42 +194,7 @@
     display: block;
     background: var(--red);
   }
-  .flexContainer {
-    display: flex;
-    flex-direction: column;
-  }
   .videoTrailer {
-    width: 100%;
-    height: 250px;
-    border-radius: 12px;
-  }
-  .bioContainer {
-    margin-top: 15px;
-    margin-left: 0px;
-  }
-  .description {
-    font-weight: 200;
-    font-size: 80%;
-    line-height: 1.5;
-  }
-  .movieTitle {
-    text-transform: uppercase;
-    font-weight: 200;
-    font-size: 65%;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ffffff28;
-    width: fit-content;
-    border-radius: 8px;
-    padding: 5px 10px;
-  }
-  .videoTitle {
-    font-size: 100%;
-    font-weight: 400;
-  }
-  .description,
-  .infoTitle,
-  .officialTrailer {
-    display: none;
+    height: 200px;
   }
 }

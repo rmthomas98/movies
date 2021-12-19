@@ -5,6 +5,13 @@
 * Browsers: last 4 version
 */
 
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.3.6,
+* Autoprefixer: v10.3.1
+* Browsers: last 4 version
+*/
+
 .searchWrapper {
   width: 50%;
   position: relative;
@@ -152,6 +159,15 @@
 .link {
   color: #fff;
   text-decoration: none;
+}
+
+@media only screen and (max-width: 1006px) {
+  .searchWrapper {
+    width: 100%;
+  }
+  .film {
+    margin-right: 0px;
+  }
 }
 
 @media only screen and (max-width: 500px) {

@@ -13,7 +13,7 @@ const MoreLikeThisLoader = ({ width }) => {
       <div className={styles.container}>
         <p className={styles.title}>More Like This</p>
         <Swiper
-          navigation={width > 500 ? true : false}
+          navigation={width > 700 ? true : false}
           freeMode={true}
           slidesPerView={"auto"}
           j

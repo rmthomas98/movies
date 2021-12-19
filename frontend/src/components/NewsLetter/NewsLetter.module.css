@@ -6,7 +6,7 @@
 */
 
 .container {
-  padding: 100px 30px;
+  padding: 75px 30px;
   background: #101014;
   text-align: center;
 }
@@ -75,9 +75,6 @@
   font-family: "Inter", sans-serif;
   color: #ffffffdc;
   padding: 12px 30px;
-  min-width: -webkit-fit-content;
-  min-width: -moz-fit-content;
-  min-width: fit-content;
   border: none;
   background: -webkit-gradient(
     linear,
@@ -86,17 +83,42 @@
     from(var(--red)),
     to(var(--light-red))
   );
-  background: -o-linear-gradient(left, var(--red), var(--light-red));
-  background: linear-gradient(to right, var(--red), var(--light-red));
   cursor: pointer;
   opacity: 0.8;
   -webkit-transition: 0.2s;
   -o-transition: 0.2s;
   transition: 0.2s;
+  width: 140px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  position: relative;
 }
 
 .signUpBtn:hover {
   opacity: 1;
+}
+
+.errors {
+  font-weight: 300;
+  font-size: 70%;
+  color: var(--red);
+  width: 100%;
+  text-align: left;
+  max-width: 550px;
+  margin: auto;
+  margin-top: 5px;
+  padding-left: 5px;
+  height: 17px;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
 }
 
 @media only screen and (max-width: 500px) {

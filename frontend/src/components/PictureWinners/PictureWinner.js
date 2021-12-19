@@ -70,7 +70,7 @@ const PictureWinner = ({ width }) => {
       <Swiper
         slidesPerView={"auto"}
         spaceBetween={width > 500 ? 30 : 15}
-        navigation={width > 500 ? true : false}
+        navigation={width > 700 ? true : false}
         freeMode={true}
       >
         {data

@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.3.6,
+* Autoprefixer: v10.3.1
+* Browsers: last 4 version
+*/
+
 .container {
   max-width: 1400px;
   margin: auto;
@@ -12,7 +19,11 @@
 .title {
   font-size: 150%;
   font-weight: 200;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   padding-bottom: 20px;
 }
@@ -30,13 +41,20 @@
 .characterGridContainer {
   width: 100%;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  -webkit-column-gap: 20px;
+  -moz-column-gap: 20px;
   column-gap: 20px;
   row-gap: 40px;
+  display: -ms-grid;
   display: grid;
 }
 
 .characterContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 }
 
@@ -76,7 +94,25 @@
   width: 100%;
   left: 0;
   top: 0;
+  -webkit-transform: translateX(-100%);
+  -ms-transform: translateX(-100%);
   transform: translateX(-100%);
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    color-stop(0, rgba(255, 255, 255, 0)),
+    color-stop(40%, rgba(255, 255, 255, 0.05)),
+    color-stop(60%, rgba(255, 255, 255, 0.08)),
+    to(rgba(255, 255, 255, 0))
+  );
+  background-image: -o-linear-gradient(
+    left,
+    rgba(255, 255, 255, 0) 0,
+    rgba(255, 255, 255, 0.05) 40%,
+    rgba(255, 255, 255, 0.08) 60%,
+    rgba(255, 255, 255, 0)
+  );
   background-image: linear-gradient(
     90deg,
     rgba(255, 255, 255, 0) 0,
@@ -84,11 +120,20 @@
     rgba(255, 255, 255, 0.08) 60%,
     rgba(255, 255, 255, 0)
   );
+  -webkit-animation: shimmer 1.5s infinite;
   animation: shimmer 1.5s infinite;
+}
+
+@-webkit-keyframes shimmer {
+  100% {
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+  }
 }
 
 @keyframes shimmer {
   100% {
+    -webkit-transform: translateX(100%);
     transform: translateX(100%);
   }
 }
@@ -101,7 +146,11 @@
   .title {
     font-size: 120%;
     font-weight: 200;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     padding-bottom: 20px;
   }

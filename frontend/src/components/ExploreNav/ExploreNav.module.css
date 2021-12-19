@@ -1,5 +1,17 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.3.6,
+* Autoprefixer: v10.3.1
+* Browsers: last 4 version
+*/
+
 .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   padding: 30px;
   border-radius: 6px;
@@ -18,7 +30,11 @@
 .navTitle {
   font-size: 120%;
   font-weight: 200;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   margin-bottom: 15px;
 }
@@ -40,12 +56,16 @@
   font-size: 80%;
   font-weight: 300;
   padding-bottom: 5px;
+  -webkit-transition: 0.2s all;
+  -o-transition: 0.2s all;
   transition: 0.2s all;
 }
 
 .navLinkActive {
   color: var(--red);
   font-weight: 500;
+  -webkit-transform: translateX(8px);
+  -ms-transform: translateX(8px);
   transform: translateX(8px);
 }
 
@@ -55,7 +75,15 @@
 
 .navLink:hover {
   color: #fff;
+  -webkit-transform: translateX(8px);
+  -ms-transform: translateX(8px);
   transform: translateX(8px);
+}
+
+@media only screen and (max-width: 836px) {
+  .container {
+    display: none;
+  }
 }
 
 @media only screen and (max-width: 500px) {

@@ -1,7 +1,18 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.3.6,
+* Autoprefixer: v10.3.1
+* Browsers: last 4 version
+*/
+
 .title {
   font-size: 150%;
   font-weight: 200;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   padding-bottom: 20px;
 }
@@ -26,6 +37,8 @@
 .featuredReviewContainer {
   border-top: 1px solid #ffffff28;
   border-bottom: 1px solid #ffffff28;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
   padding-top: 25px;
   padding-bottom: 25px;
@@ -33,7 +46,17 @@
 
 .featuredReviewHeader {
   text-transform: uppercase;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
+  background: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    from(var(--red)),
+    to(var(--light-red))
+  );
+  background: -o-linear-gradient(left, var(--red), var(--light-red));
   background: linear-gradient(90deg, var(--red), var(--light-red));
   padding: 5px 10px;
   font-size: 65%;
@@ -43,6 +66,8 @@
 }
 
 .infoFlexContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   padding-bottom: 10px;
 }
@@ -52,23 +77,38 @@
   margin-right: 15px;
   font-size: 70%;
   opacity: 0.8;
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
 }
 
 .authorRating {
   font-size: 70%;
   opacity: 0.8;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 }
 
 .ratingSection {
   padding-top: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 }
 
 .thumbContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 }
 
@@ -100,7 +140,11 @@
   .title {
     font-size: 120%;
     font-weight: 200;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     padding-bottom: 20px;
   }

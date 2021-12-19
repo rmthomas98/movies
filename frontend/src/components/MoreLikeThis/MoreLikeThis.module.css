@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.3.6,
+* Autoprefixer: v10.3.1
+* Browsers: last 4 version
+*/
+
 .movieContainer {
   border-radius: 12px;
   max-width: 200px;
@@ -10,8 +17,14 @@
   position: relative;
   min-width: 200px;
   background: var(--dark-background);
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
 }
 
@@ -24,23 +37,34 @@
 }
 
 .image {
+  -webkit-transform: scale(1.05);
+  -ms-transform: scale(1.05);
   transform: scale(1.05);
+  -webkit-transition: 0.3s all;
+  -o-transition: 0.3s all;
   transition: 0.3s all;
   width: 200px;
   min-height: 300px;
   max-height: 300px;
+  -o-object-fit: cover;
   object-fit: cover;
   opacity: 0.8;
 }
 
 .image:hover {
   opacity: 1;
+  -webkit-transform: scale(1.01);
+  -ms-transform: scale(1.01);
   transform: scale(1.01);
 }
 .title {
   font-size: 150%;
   font-weight: 200;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 }
 
@@ -65,6 +89,28 @@
   padding-bottom: 50px;
 }
 
+@media only screen and (max-width: 1006px) {
+  .movieContainer {
+    min-height: 225px;
+    max-height: 225px;
+    max-width: 150px;
+    min-width: 150px;
+    border-radius: 6px;
+  }
+  .image {
+    height: 100%;
+    min-height: 225px;
+    max-height: 225px;
+    max-width: 150px;
+    min-width: 150px;
+  }
+  .image:hover {
+    -webkit-transform: scale(1.02);
+    -ms-transform: scale(1.02);
+    transform: scale(1.02);
+  }
+}
+
 @media only screen and (max-width: 500px) {
   .wrapper {
     padding: 15px;
@@ -85,17 +131,25 @@
     max-width: 100px;
     min-width: 100px;
     opacity: 1;
+    -webkit-transform: scale(1.03);
+    -ms-transform: scale(1.03);
     transform: scale(1.03);
   }
 
   .image:hover {
+    -webkit-transform: scale(1.03);
+    -ms-transform: scale(1.03);
     transform: scale(1.03);
     opacity: 1;
   }
   .title {
     font-size: 120%;
     font-weight: 200;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
   }
 

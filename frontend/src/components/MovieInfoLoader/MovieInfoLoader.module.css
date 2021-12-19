@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.3.6,
+* Autoprefixer: v10.3.1
+* Browsers: last 4 version
+*/
+
 .wrapper {
   padding: 30px;
   padding-bottom: 75px;
@@ -10,12 +17,15 @@
 }
 
 .flexContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   padding-top: 20px;
 }
 
 .imgContainer {
-  width: 250px;
+  min-width: 250px;
+  max-width: 250px;
   height: 375px;
   border-radius: 12px;
   background: var(--dark-background);
@@ -40,7 +50,25 @@
   width: 100%;
   left: 0;
   top: 0;
+  -webkit-transform: translateX(-100%);
+  -ms-transform: translateX(-100%);
   transform: translateX(-100%);
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    color-stop(0, rgba(255, 255, 255, 0)),
+    color-stop(40%, rgba(255, 255, 255, 0.01)),
+    color-stop(60%, rgba(255, 255, 255, 0.03)),
+    to(rgba(255, 255, 255, 0))
+  );
+  background-image: -o-linear-gradient(
+    left,
+    rgba(255, 255, 255, 0) 0,
+    rgba(255, 255, 255, 0.01) 40%,
+    rgba(255, 255, 255, 0.03) 60%,
+    rgba(255, 255, 255, 0)
+  );
   background-image: linear-gradient(
     90deg,
     rgba(255, 255, 255, 0) 0,
@@ -48,6 +76,7 @@
     rgba(255, 255, 255, 0.03) 60%,
     rgba(255, 255, 255, 0)
   );
+  -webkit-animation: shimmer 2s infinite;
   animation: shimmer 2s infinite;
 }
 
@@ -68,12 +97,21 @@
 .infoContainer {
   width: 100%;
   margin-left: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
 }
 
 .smallFlexContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   padding-bottom: 15px;
 }
@@ -99,7 +137,7 @@
 .description {
   height: 120px;
   width: 100%;
-  max-width: 800px;
+  max-width: 600px;
   background: var(--dark-background);
   border-radius: 12px;
   margin-bottom: 15px;
@@ -118,6 +156,8 @@
 }
 
 .starringContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
@@ -143,6 +183,8 @@
 }
 
 .waysToWatchContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
@@ -165,13 +207,21 @@
   position: relative;
 }
 
-@keyframes shimmer {
+@-webkit-keyframes shimmer {
   100% {
+    -webkit-transform: translateX(100%);
     transform: translateX(100%);
   }
 }
 
-@media only screen and (max-width: 500px) {
+@keyframes shimmer {
+  100% {
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+  }
+}
+
+@media only screen and (max-width: 800px) {
   .wrapper {
     padding: 15px;
     padding-bottom: 50px;
@@ -185,6 +235,9 @@
     height: 300px;
   }
   .flexContainer {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
   }
   .infoContainer {
@@ -194,9 +247,11 @@
   .mobileTitle {
     display: block;
     width: 70%;
+    max-width: 300px;
     margin-bottom: 15px;
   }
   .description {
     height: 80px;
+    max-width: 500px;
   }
 }

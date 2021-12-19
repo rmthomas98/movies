@@ -1,9 +1,36 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.3.6,
+* Autoprefixer: v10.3.1
+* Browsers: last 4 version
+*/
+
 .container {
   height: 600px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  background-image: -webkit-gradient(
+      linear,
+      left top,
+      left bottom,
+      from(#00000070),
+      color-stop(#00000070),
+      to(var(--background))
+    ),
+    url("./assets/images/bg.jpg");
+  background-image: -o-linear-gradient(#00000070, #00000070, var(--background)),
+    url("./assets/images/bg.jpg");
   background-image: linear-gradient(#00000070, #00000070, var(--background)),
     url("./assets/images/bg.jpg");
   background-size: cover;
@@ -29,17 +56,58 @@
   font-weight: 500;
   padding: 18px 50px;
   border-radius: 15px;
+  background: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    from(var(--red)),
+    to(var(--light-red))
+  );
+  background: -o-linear-gradient(left, var(--red), var(--light-red));
   background: linear-gradient(to right, var(--red), var(--light-red));
   color: #fff;
   text-decoration: none;
+  -webkit-transition: 0.3s all;
+  -o-transition: 0.3s all;
   transition: 0.3s all;
 }
 
 .btn:hover {
   /* box-shadow: -5px 0px 20px #d31027af, 5px 0px 20px #ea384daf; */
   /* transform: scale(0.98); */
+  -webkit-transform: translateY(-5px);
+  -ms-transform: translateY(-5px);
   transform: translateY(-5px);
+  -webkit-box-shadow: 0px 10px 15px #0000008f;
   box-shadow: 0px 10px 15px #0000008f;
+}
+
+@media only screen and (max-width: 900px) {
+  .title {
+    text-align: center;
+    font-size: 300%;
+  }
+  .description {
+    font-size: 90%;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .title {
+    font-size: 250%;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .title {
+    font-size: 200%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .title {
+    font-size: 180%;
+  }
 }
 
 @media only screen and (max-width: 500px) {

@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.3.6,
+* Autoprefixer: v10.3.1
+* Browsers: last 4 version
+*/
+
 .container {
   border-bottom: 1px solid #ffffff28;
   padding: 30px;
@@ -25,7 +32,25 @@
   width: 100%;
   left: 0;
   top: 0;
+  -webkit-transform: translateX(-100%);
+  -ms-transform: translateX(-100%);
   transform: translateX(-100%);
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    color-stop(0, rgba(255, 255, 255, 0)),
+    color-stop(40%, rgba(255, 255, 255, 0.05)),
+    color-stop(60%, rgba(255, 255, 255, 0.08)),
+    to(rgba(255, 255, 255, 0))
+  );
+  background-image: -o-linear-gradient(
+    left,
+    rgba(255, 255, 255, 0) 0,
+    rgba(255, 255, 255, 0.05) 40%,
+    rgba(255, 255, 255, 0.08) 60%,
+    rgba(255, 255, 255, 0)
+  );
   background-image: linear-gradient(
     90deg,
     rgba(255, 255, 255, 0) 0,
@@ -37,13 +62,31 @@
   -webkit-animation: shimmer 2s infinite;
 }
 
+@-webkit-keyframes shimmer {
+  100% {
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+  }
+}
+
 @keyframes shimmer {
   100% {
+    -webkit-transform: translateX(100%);
     transform: translateX(100%);
   }
 }
 
 /* QUERIES */
+
+@media only screen and (max-width: 1006px) {
+  .movieContainer {
+    min-height: 225px;
+    max-height: 225px;
+    max-width: 150px;
+    min-width: 150px;
+    border-radius: 6px;
+  }
+}
 
 @media only screen and (max-width: 500px) {
   .container {
