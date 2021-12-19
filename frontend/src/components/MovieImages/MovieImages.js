@@ -7,7 +7,7 @@ import "swiper/swiper-bundle.min.css";
 import SwiperCore, { Navigation, FreeMode } from "swiper";
 import MovieImagesLoader from "../MovieImagesLoader/MovieImagesLoader";
 
-const MovieImages = ({ id }) => {
+const MovieImages = ({ id, width }) => {
   const [images, setImages] = useState();
 
   useEffect(() => {
@@ -47,8 +47,8 @@ const MovieImages = ({ id }) => {
         </p>
         <Swiper
           slidesPerView={"auto"}
-          navigation={true}
-          spaceBetween={20}
+          navigation={width > 500 ? true : false}
+          spaceBetween={width > 500 ? 30 : 15}
           freeMode={true}
         >
           {images.map((element) => {

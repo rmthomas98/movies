@@ -65,3 +65,60 @@
   border-radius: 10px;
   padding: 5px 10px;
 }
+
+@media only screen and (max-width: 500px) {
+  .wrapper {
+    padding: 15px;
+    padding-top: 0px;
+    padding-bottom: 50px;
+  }
+  .title {
+    font-size: 120%;
+    font-weight: 200;
+    display: flex;
+    align-items: center;
+    padding-bottom: 20px;
+  }
+
+  .title::before {
+    margin-right: 5px;
+    height: 28px;
+    width: 4px;
+    border-radius: 10px;
+    content: "";
+    display: block;
+    background: var(--red);
+  }
+  .flexContainer {
+    display: flex;
+    flex-direction: column;
+  }
+  .videoTrailer {
+    width: 100%;
+    border-radius: 12px;
+  }
+  .bioContainer {
+    margin-top: 15px;
+    margin-left: 0px;
+  }
+  .description {
+    font-weight: 200;
+    font-size: 80%;
+    line-height: 1.5;
+  }
+  .movieTitle {
+    text-transform: uppercase;
+    font-weight: 200;
+    font-size: 65%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ffffff28;
+    width: fit-content;
+    border-radius: 8px;
+    padding: 5px 10px;
+  }
+  .videoTitle {
+    font-size: 100%;
+    font-weight: 400;
+  }
+}

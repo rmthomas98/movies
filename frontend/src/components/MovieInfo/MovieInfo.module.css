@@ -1,6 +1,11 @@
-.title {
+.titleTop,
+.titleBottom {
   font-size: 200%;
   font-weight: 300;
+}
+
+.titleBottom {
+  display: none;
 }
 
 .movieImageCover {
@@ -101,6 +106,7 @@
   border: 1px solid var(--red);
   color: var(--red);
   background: #00000028;
+  min-width: fit-content;
 }
 
 .watchBtn:hover {
@@ -108,10 +114,10 @@
   color: #fff;
 }
 
-
 .watchTitle {
   font-weight: 500;
   margin-right: 15px;
+  min-width: fit-content;
 }
 
 .dot {
@@ -130,4 +136,62 @@
 .contentContainer {
   max-width: 1400px;
   margin: auto;
+}
+
+@media only screen and (max-width: 500px) {
+  .container {
+    padding: 15px;
+    padding-bottom: 30px;
+  }
+  .movieInfoFlexContainer {
+    display: flex;
+    flex-direction: column;
+  }
+  .infoContainer {
+    padding-left: 0px;
+  }
+  .titleTop {
+    display: none;
+  }
+  .titleBottom {
+    display: block;
+    font-size: 130%;
+    font-weight: 500;
+    margin-top: 20px;
+    margin-bottom: 15px;
+  }
+  .description {
+    font-weight: 200;
+    font-size: 80%;
+    line-height: 1.5;
+  }
+  .smallTitle {
+    font-size: 80%;
+    font-weight: 500;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .name {
+    font-size: 95%;
+    line-height: 1.5;
+  }
+  .watchTitle {
+    font-size: 90%;
+    display: none;
+  }
+  .movieImageCover {
+    max-width: 200px;
+    border-radius: 12px;
+  }
+  .watchBtn {
+    padding: 8px 15px;
+    border-radius: 8px;
+    font-size: 60%;
+    color: #fff;
+    margin-right: 5px;
+    min-width: fit-content;
+    color: var(--red);
+  }
 }

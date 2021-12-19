@@ -111,12 +111,13 @@ const MovieInfo = ({ id }) => {
       }}
     >
       <div className={styles.contentContainer}>
-        <p className={styles.title}>{metaData[0].title.title}</p>
+        <p className={styles.titleTop}>{metaData[0].title.title}</p>
         <div className={styles.movieInfoFlexContainer}>
           <img
             src={metaData[0].popularity.image.url}
             className={styles.movieImageCover}
           />
+          <p className={styles.titleBottom}>{metaData[0].title.title}</p>
           <div className={styles.infoContainer}>
             <div className={styles.ratingDate}>
               <p className={styles.date}>{metaData[0].releaseDate}</p>
@@ -165,10 +166,10 @@ const MovieInfo = ({ id }) => {
             <p className={styles.smallTitle}>
               Starring{" "}
               <span className={styles.name}>
-                {starring[0]?.name} 
-                {starring[1]?.name ? <Dot className={styles.dot} /> : ''}
-                {starring[1]?.name} 
-                {starring[2]?.name ? <Dot className={styles.dot} /> : '' }
+                {starring[0]?.name}
+                {starring[1]?.name ? <Dot className={styles.dot} /> : ""}
+                {starring[1]?.name}
+                {starring[2]?.name ? <Dot className={styles.dot} /> : ""}
                 {starring[2]?.name}
               </span>
             </p>
@@ -194,7 +195,7 @@ const MovieInfo = ({ id }) => {
                   })}
                 </>
               ) : (
-                ''
+                ""
               )}
             </div>
           </div>
