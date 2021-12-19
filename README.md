@@ -1,2 +1,2 @@
-# movies
-find info about movies
+# Movie Explorer
+Find different info about movies
