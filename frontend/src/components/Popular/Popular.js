@@ -39,7 +39,6 @@ const Popular = ({ width }) => {
         (element) => element.split("/")[2]
       );
       setPopularTitles(popluarMovieTitles.splice(0, 30).join("&ids="));
-      console.log(popluarMovieTitles);
     };
     getPopularMovies();
   }, []);
@@ -53,12 +52,10 @@ const Popular = ({ width }) => {
     getPopularImages();
   }, [popularTitles]);
 
-  console.log(data);
   SwiperCore.use([Navigation, FreeMode]);
 
   if (!data) return <SwiperLoader />;
 
-  console.log(width);
 
   return (
     <div className={styles.container}>

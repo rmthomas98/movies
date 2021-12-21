@@ -41,7 +41,6 @@ const ExploreComingSoon = () => {
         return element.id.split("/")[2];
       });
       setIds(idsList.join("&ids="));
-      console.log(ids);
     };
     getIds();
   }, []);
@@ -50,7 +49,6 @@ const ExploreComingSoon = () => {
     if (!ids) return;
     const getMetaData = async () => {
       const response = await axios.request(metaDataOptions);
-      console.log(Object.values(response.data));
       const metaList = Object.values(response.data).map((element) => {
         return [
           element.popularity.image?.url,
@@ -81,9 +79,9 @@ const ExploreComingSoon = () => {
     <div className={styles.container}>
       <p className={styles.title}>Coming Soon</p>
       {data
-        ? data.map((element) => {
+        ? data.map((element, index) => {
             return (
-              <div className={styles.movieContainer}>
+              <div className={styles.movieContainer} key={index}>
                 <Link
                   to={`/movie-viewer/${element[2]}`}
                   state={{ id: element[2] }}

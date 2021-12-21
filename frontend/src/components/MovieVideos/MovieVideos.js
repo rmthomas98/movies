@@ -40,7 +40,6 @@ const MovieVideos = ({ id }) => {
     setTimeout(() => {
       const getTrailerId = async () => {
         const response = await axios.request(options);
-        console.log(response.data);
         setTrailerId(response.data.resource.videos?.[0]?.id.split("/")[2]);
         setDescription(response.data.resource.videos?.[0].description);
         setTitle(response.data.resource.title);
@@ -53,14 +52,11 @@ const MovieVideos = ({ id }) => {
     if (!trailerId) return;
     const getTrailer = async () => {
       const response = await axios.request(trailerOptions);
-      console.log(response.data);
       setTrailer(response.data.resource.encodings[1].playUrl);
     };
     getTrailer();
   }, [trailerId]);
 
-  console.log(trailer);
-  console.log(description);
 
   if (!trailer) return <MovieVideoLoader />;
 

@@ -63,7 +63,6 @@ const MovieInfo = ({ id }) => {
     const getMetaData = async () => {
       const response = await axios.request(metaDataOptions);
       setMetaData(Object.values(response.data));
-      console.log(Object.values(response.data));
       document.title = Object.values(response.data)[0].title.title;
     };
     getMetaData();
@@ -72,7 +71,6 @@ const MovieInfo = ({ id }) => {
   useEffect(() => {
     const getCredits = async () => {
       const response = await axios.request(creditOptions);
-      console.log(response.data);
       setStarring(response.data.cast.slice(0, 3));
       if (!response.data.crew.director) return;
       setDirector(response.data.crew.director[0].name);
@@ -92,13 +90,11 @@ const MovieInfo = ({ id }) => {
   useEffect(() => {
     const getImage = async () => {
       const response = await axios.request(imageOptions);
-      console.log(response.data);
       setBackgroundImage(response.data.images[0].url);
     };
     getImage();
   }, [id]);
 
-  console.log(metaData);
 
   if (!metaData || !starring || !backgroundImage) return <MovieInfoLoader />;
 
@@ -150,8 +146,8 @@ const MovieInfo = ({ id }) => {
               </p>
             </div>
             <div className={styles.genreTags}>
-              {metaData[0].genres.map((element) => (
-                <p className={styles.genreTag}>{element}</p>
+              {metaData[0].genres.map((element, index) => (
+                <p key={index} className={styles.genreTag}>{element}</p>
               ))}
             </div>
 
@@ -177,7 +173,7 @@ const MovieInfo = ({ id }) => {
               {metaData[0].waysToWatch.optionGroups ? (
                 <>
                   <p className={styles.watchTitle}>Ways to Watch</p>
-                  {metaData[0].waysToWatch.optionGroups.map((element) => {
+                  {metaData[0].waysToWatch.optionGroups.map((element, index) => {
                     return (
                       <a
                         href={
@@ -188,6 +184,7 @@ const MovieInfo = ({ id }) => {
                         target="_blank"
                         rel="noreferrer"
                         className={styles.watchBtn}
+                        key={index}
                       >
                         {element.displayName}
                       </a>

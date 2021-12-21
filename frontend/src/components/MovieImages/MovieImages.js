@@ -51,9 +51,9 @@ const MovieImages = ({ id, width }) => {
           spaceBetween={width > 500 ? 30 : 15}
           freeMode={true}
         >
-          {images.map((element) => {
+          {images.map((element,index) => {
             return (
-              <SwiperSlide className={styles.imageContainer}>
+              <SwiperSlide className={styles.imageContainer} key={index}>
                 <img src={element} className={styles.image} alt="movie image" />
               </SwiperSlide>
             );

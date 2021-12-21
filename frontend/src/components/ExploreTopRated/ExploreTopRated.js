@@ -36,7 +36,6 @@ const ExploreTopRated = () => {
   useEffect(() => {
     const getIds = async () => {
       const response = await axios.request(options);
-      console.log(response.data.slice(0, 30));
       const idsList = response.data.slice(0, 50).map((element) => {
         return element.id.split("/")[2];
       });
@@ -57,7 +56,6 @@ const ExploreTopRated = () => {
           element.title.id.split("/")[2],
         ];
       });
-      console.log(dataList);
       setData(dataList);
     };
     getMetaData();
@@ -81,9 +79,9 @@ const ExploreTopRated = () => {
     <div className={styles.container}>
       <p className={styles.title}>Top Rated</p>
       {data
-        ? data.map((element) => {
+        ? data.map((element, index) => {
             return (
-              <div className={styles.movieContainer}>
+              <div className={styles.movieContainer} key={index}>
                 <Link
                   to={`/movie-viewer/${element[3]}`}
                   state={{ id: element[3] }}

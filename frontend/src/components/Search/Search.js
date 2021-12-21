@@ -25,7 +25,6 @@ const Search = () => {
   useEffect(() => {
     const getSearchData = async () => {
       const response = await axios.request(options);
-      console.log(response.data);
       setData(response.data);
     };
     getSearchData();
@@ -40,8 +39,6 @@ const Search = () => {
     setText();
     document.querySelector("#search-input").value = "";
   };
-
-  console.log(text);
 
   return (
     <div className={styles.searchWrapper}>
@@ -77,7 +74,7 @@ const Search = () => {
         {data ? (
           <div className={styles.resultsContainer}>
             {data.results ? (
-              data.results.map((element) => {
+              data.results.map((element, index) => {
                 if (
                   element.episode ||
                   !element.image ||
@@ -92,6 +89,7 @@ const Search = () => {
                     state={{ id: element.id.split("/")[2] }}
                     className={styles.link}
                     onClick={handleOutsideClick}
+                    key={index}
                   >
                     <div className={styles.resultContainer}>
                       <img

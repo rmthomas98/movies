@@ -1,8 +1,5 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React from "react";
 import styles from "./ShowCase.module.css";
-import SwiperCore, { Navigation, FreeMode } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react/swiper-react.js";
 import "swiper/swiper.min.css";
 import "swiper/swiper-bundle.min.css";
 import { Link } from "react-router-dom";

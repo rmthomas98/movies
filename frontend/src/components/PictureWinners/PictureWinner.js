@@ -35,7 +35,6 @@ const PictureWinner = ({ width }) => {
     setTimeout(() => {
       const getIds = async () => {
         const response = await axios.request(options);
-        console.log(response.data.slice(0, 30));
         const idsList = response.data.slice(0, 30).map((element) => {
           return element.split("/")[2];
         });
@@ -56,7 +55,6 @@ const PictureWinner = ({ width }) => {
           element.title.title,
         ];
       });
-      console.log(dataList);
       setData(dataList);
     };
     getMetaData();

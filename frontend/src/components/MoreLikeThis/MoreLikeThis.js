@@ -6,7 +6,6 @@ import "swiper/swiper.min.css";
 import "swiper/swiper-bundle.min.css";
 import SwiperCore, { Navigation, FreeMode } from "swiper";
 import { Link } from "react-router-dom";
-import SwiperLoader from "../SwiperLoader/SwiperLoader";
 import MoreLikeThisLoader from "../MoreLikeThisLoader/MoreLikeThisLoader";
 
 const MoreLikeThis = ({ id, width }) => {
@@ -47,7 +46,6 @@ const MoreLikeThis = ({ id, width }) => {
       const getIds = async () => {
         const response = await axios.request(idOptions);
         const idList = response.data.map((element) => element.split("/")[2]);
-        console.log(idList);
         setIds(idList.join("&ids="));
       };
       getIds();
@@ -58,7 +56,6 @@ const MoreLikeThis = ({ id, width }) => {
     if (!ids) return;
     const getMetaData = async () => {
       const response = await axios.request(metaOptions);
-      console.log(response.data);
       setData(Object.values(response.data));
     };
     getMetaData();
@@ -66,7 +63,6 @@ const MoreLikeThis = ({ id, width }) => {
 
   SwiperCore.use([Navigation, FreeMode]);
 
-  console.log(data);
 
   if (!data) return <MoreLikeThisLoader width={width} />;
 
@@ -80,7 +76,7 @@ const MoreLikeThis = ({ id, width }) => {
           spaceBetween={width > 500 ? 30 : 15}
           freeMode={true}
         >
-          {data.map((element) => {
+          {data.map((element, index) => {
             if (
               element.title.numberOfEpisodes ||
               !element.title.image ||
@@ -90,7 +86,7 @@ const MoreLikeThis = ({ id, width }) => {
             )
               return "";
             return (
-              <SwiperSlide className={styles.movieContainer}>
+              <SwiperSlide className={styles.movieContainer} key={index} >
                 <Link
                   to={`/movie-viewer/${element.title.id.split("/")[2]}`}
                   state={{ id: element.title.id.split("/")[2] }}

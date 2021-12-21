@@ -41,7 +41,6 @@ const ExplorePopular = () => {
         (element) => element.split("/")[2]
       );
       setPopularTitles(popluarMovieTitles.splice(0, 50).join("&ids="));
-      console.log(popluarMovieTitles);
     };
     getPopularMovies();
   }, []);
@@ -73,9 +72,9 @@ const ExplorePopular = () => {
     <div className={styles.container}>
       <p className={styles.title}>Most Popular</p>
       {data
-        ? data.map((element) => {
+        ? data.map((element, index) => {
             return (
-              <div className={styles.movieContainer}>
+              <div className={styles.movieContainer} key={index}>
                 <Link
                   to={`/movie-viewer/${element.title.id.split("/")[2]}`}
                   state={{ id: element.title.id.split("/")[2] }}

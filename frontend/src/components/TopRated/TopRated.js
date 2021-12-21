@@ -34,7 +34,6 @@ const TopRated = ({ width }) => {
   useEffect(() => {
     const getIds = async () => {
       const response = await axios.request(options);
-      console.log(response.data.slice(0, 30));
       const idsList = response.data.slice(0, 30).map((element) => {
         return element.id.split("/")[2];
       });
@@ -55,7 +54,6 @@ const TopRated = ({ width }) => {
           element.title.title,
         ];
       });
-      console.log(dataList);
       setData(dataList);
     };
     getMetaData();

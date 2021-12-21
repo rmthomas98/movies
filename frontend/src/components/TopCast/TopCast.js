@@ -43,12 +43,10 @@ const TopCast = ({ id }) => {
     setTimeout(() => {
       const getTopCast = async () => {
         const response = await axios.request(options);
-        console.log(response.data);
         const idsList = response.data
           .slice(0, 20)
           .map((element) => element.split("/")[2]);
         setIds(idsList.join("&id="));
-        console.log(idsList);
       };
       getTopCast();
     }, 2000);
@@ -58,7 +56,6 @@ const TopCast = ({ id }) => {
     if (!ids) return;
     const getBios = async () => {
       const response = await axios.request(bioOptions);
-      console.log(response.data);
       setTopCast(Object.values(response.data));
     };
     getBios();
@@ -71,9 +68,9 @@ const TopCast = ({ id }) => {
       <div className={styles.container}>
         <p className={styles.title}>Top Cast</p>
         <div className={styles.characterGridContainer}>
-          {topCast.map((element) => {
+          {topCast.map((element, index) => {
             return (
-              <div className={styles.characterContainer}>
+              <div className={styles.characterContainer} key={index}>
                 <div className={styles.imageContainer}>
                   {element.name?.image?.url ? (
                     <img

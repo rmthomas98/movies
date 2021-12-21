@@ -33,14 +33,12 @@ const FeaturedReview = ({ id }) => {
     setTimeout(() => {
       const getFeaturedReview = async () => {
         const response = await axios.request(FeaturedReviewOptions);
-        console.log(response.data);
         setFeaturedReview(response.data.featuredUserReview.review);
       };
       getFeaturedReview();
     }, 3000);
   }, [id]);
 
-  console.log(featuredReview);
 
   if (!featuredReview) return "";
 

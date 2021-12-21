@@ -55,7 +55,6 @@ const ExplorePictureWinners = () => {
           element.title.id.split("/")[2],
         ];
       });
-      console.log(dataList);
       setData(dataList);
     };
     getMetaData();
@@ -79,9 +78,9 @@ const ExplorePictureWinners = () => {
     <div className={styles.container}>
       <p className={styles.title}>Best Picture Winners</p>
       {data
-        ? data.map((element) => {
+        ? data.map((element, index) => {
             return (
-              <div className={styles.movieContainer}>
+              <div className={styles.movieContainer} key={index}>
                 <Link
                   to={`/movie-viewer/${element[2]}`}
                   state={{ id: element[2] }}
