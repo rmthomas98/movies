@@ -54,7 +54,7 @@ const MovieImages = ({ id, width }) => {
           {images.map((element,index) => {
             return (
               <SwiperSlide className={styles.imageContainer} key={index}>
-                <img src={element} className={styles.image} alt="movie image" />
+                <img src={element} className={styles.image} alt="movie cover" />
               </SwiperSlide>
             );
           })}

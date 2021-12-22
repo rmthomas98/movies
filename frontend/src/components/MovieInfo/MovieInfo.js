@@ -111,6 +111,7 @@ const MovieInfo = ({ id }) => {
         <div className={styles.movieInfoFlexContainer}>
           <img
             src={metaData[0].popularity.image.url}
+            alt={metaData[0].title.title}
             className={styles.movieImageCover}
           />
           <p className={styles.titleBottom}>{metaData[0].title.title}</p>

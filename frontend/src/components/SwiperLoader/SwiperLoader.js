@@ -1,11 +1,14 @@
 import React from "react";
 import styles from "./SwiperLoader.module.css";
-import SwiperCore, { Navigation } from "swiper";
+import SwiperCore, { Navigation, FreeMode } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react/swiper-react.js";
 import "swiper/swiper.min.css";
 import "swiper/swiper-bundle.min.css";
 
 const SwiperLoader = ({ width }) => {
+
+  SwiperCore.use([Navigation, FreeMode]);
+
   return (
     <div className={styles.container}>
       <Swiper

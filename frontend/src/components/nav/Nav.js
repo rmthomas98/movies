@@ -1,4 +1,4 @@
-import React, { useReducer, useState, useRef } from "react";
+import React, { useState, useRef } from "react";
 import styles from "./Nav.module.css";
 import { House, Film, Binoculars } from "react-bootstrap-icons";
 import { Link, NavLink } from "react-router-dom";

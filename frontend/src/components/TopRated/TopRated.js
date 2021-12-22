@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import styles from "./TopRated.module.css";
-import SwiperCore, { Navigation, FreeMode } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react/swiper-react.js";
 import "swiper/swiper.min.css";
 import "swiper/swiper-bundle.min.css";

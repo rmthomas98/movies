@@ -60,6 +60,8 @@ const PictureWinner = ({ width }) => {
     getMetaData();
   }, [ids]);
 
+  SwiperCore.use([Navigation, FreeMode]);
+
   if (!data) return <SwiperLoader width={width} />;
 
   return (
