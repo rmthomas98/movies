@@ -4,6 +4,7 @@ import axios from "axios";
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import { Link } from "react-router-dom";
+import LazyLoad from "react-lazyload";
 
 const titleOptions = {
   method: "GET",
@@ -80,11 +81,13 @@ const ExplorePopular = () => {
                   state={{ id: element.title.id.split("/")[2] }}
                   className={styles.link}
                 >
-                  <img
-                    src={element.popularity.image.url}
-                    className={styles.image}
-                    alt={element.title.title}
-                  />
+                  <LazyLoad>
+                    <img
+                      src={element.popularity.image.url}
+                      className={styles.image}
+                      alt={element.title.title}
+                    />
+                  </LazyLoad>
                 </Link>
               </div>
             );

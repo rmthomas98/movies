@@ -7,6 +7,7 @@ import "swiper/swiper-bundle.min.css";
 import SwiperCore, { Navigation, FreeMode } from "swiper";
 import { Link } from "react-router-dom";
 import MoreLikeThisLoader from "../MoreLikeThisLoader/MoreLikeThisLoader";
+import LazyLoad from "react-lazyload";
 
 const MoreLikeThis = ({ id, width }) => {
   const [ids, setIds] = useState();
@@ -63,7 +64,6 @@ const MoreLikeThis = ({ id, width }) => {
 
   SwiperCore.use([Navigation, FreeMode]);
 
-
   if (!data) return <MoreLikeThisLoader width={width} />;
 
   return (
@@ -86,17 +86,19 @@ const MoreLikeThis = ({ id, width }) => {
             )
               return "";
             return (
-              <SwiperSlide className={styles.movieContainer} key={index} >
+              <SwiperSlide className={styles.movieContainer} key={index}>
                 <Link
                   to={`/movie-viewer/${element.title.id.split("/")[2]}`}
                   state={{ id: element.title.id.split("/")[2] }}
                   className={styles.link}
                 >
-                  <img
-                    src={element.popularity.image?.url}
-                    className={styles.image}
-                    alt={element.title.title}
-                  />
+                  <LazyLoad>
+                    <img
+                      src={element.popularity.image?.url}
+                      className={styles.image}
+                      alt={element.title.title}
+                    />
+                  </LazyLoad>
                 </Link>
               </SwiperSlide>
             );

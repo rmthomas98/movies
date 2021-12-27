@@ -7,6 +7,7 @@ import "swiper/swiper.min.css";
 import "swiper/swiper-bundle.min.css";
 import SwiperLoader from "../SwiperLoader/SwiperLoader";
 import { Link } from "react-router-dom";
+import LazyLoad from "react-lazyload";
 
 const titleOptions = {
   method: "GET",
@@ -56,7 +57,6 @@ const Popular = ({ width }) => {
 
   if (!data) return <SwiperLoader />;
 
-
   return (
     <div className={styles.container}>
       <p className="sub-header">Most Popular Movies</p>
@@ -83,11 +83,13 @@ const Popular = ({ width }) => {
                     state={{ id: strippedId }}
                     className={styles.link}
                   >
-                    <img
-                      src={element.popularity.image.url}
-                      className={styles.image}
-                      alt={element.title.title}
-                    />
+                    <LazyLoad>
+                      <img
+                        src={element.popularity.image.url}
+                        className={styles.image}
+                        alt={element.title.title}
+                      />
+                    </LazyLoad>
                   </Link>
                 </SwiperSlide>
               );

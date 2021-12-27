@@ -6,6 +6,7 @@ import "swiper/swiper.min.css";
 import "swiper/swiper-bundle.min.css";
 import SwiperCore, { Navigation, FreeMode } from "swiper";
 import MovieImagesLoader from "../MovieImagesLoader/MovieImagesLoader";
+import LazyLoad from "react-lazyload";
 
 const MovieImages = ({ id, width }) => {
   const [images, setImages] = useState();
@@ -51,10 +52,16 @@ const MovieImages = ({ id, width }) => {
           spaceBetween={width > 500 ? 30 : 15}
           freeMode={true}
         >
-          {images.map((element,index) => {
+          {images.map((element, index) => {
             return (
               <SwiperSlide className={styles.imageContainer} key={index}>
-                <img src={element} className={styles.image} alt="movie cover" />
+                <LazyLoad>
+                  <img
+                    src={element}
+                    className={styles.image}
+                    alt="movie cover"
+                  />
+                </LazyLoad>
               </SwiperSlide>
             );
           })}

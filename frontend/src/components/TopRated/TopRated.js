@@ -6,6 +6,7 @@ import "swiper/swiper.min.css";
 import "swiper/swiper-bundle.min.css";
 import SwiperLoader from "../SwiperLoader/SwiperLoader";
 import { Link } from "react-router-dom";
+import LazyLoad from "react-lazyload";
 
 const options = {
   method: "GET",
@@ -79,11 +80,13 @@ const TopRated = ({ width }) => {
                     state={{ id: element[2] }}
                     className={styles.link}
                   >
-                    <img
-                      src={element[1]}
-                      className={styles.image}
-                      alt={element[3]}
-                    />
+                    <LazyLoad>
+                      <img
+                        src={element[1]}
+                        className={styles.image}
+                        alt={element[3]}
+                      />
+                    </LazyLoad>
                   </Link>
                 </SwiperSlide>
               );

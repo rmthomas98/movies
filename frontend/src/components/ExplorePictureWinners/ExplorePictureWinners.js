@@ -4,6 +4,7 @@ import axios from "axios";
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import { Link } from "react-router-dom";
+import LazyLoad from "react-lazyload";
 
 const options = {
   method: "GET",
@@ -86,11 +87,13 @@ const ExplorePictureWinners = () => {
                   state={{ id: element[2] }}
                   className={styles.link}
                 >
-                  <img
-                    src={element[0]}
-                    className={styles.image}
-                    alt={element[1]}
-                  />
+                  <LazyLoad>
+                    <img
+                      src={element[0]}
+                      className={styles.image}
+                      alt={element[1]}
+                    />
+                  </LazyLoad>
                 </Link>
               </div>
             );

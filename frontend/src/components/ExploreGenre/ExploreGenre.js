@@ -5,6 +5,7 @@ import axios from "axios";
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import { Link } from "react-router-dom";
+import LazyLoad from "react-lazyload";
 
 const ExploreGenre = () => {
   const [ids, setIds] = useState();
@@ -97,11 +98,13 @@ const ExploreGenre = () => {
                   state={{ id: element[2] }}
                   className={styles.link}
                 >
+                  <LazyLoad>
                   <img
                     src={element[0]}
                     alt={element[1]}
                     className={styles.image}
                   />
+                  </LazyLoad>
                 </Link>
               </div>
             );

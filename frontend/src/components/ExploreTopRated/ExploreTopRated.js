@@ -4,6 +4,7 @@ import axios from "axios";
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import { Link } from "react-router-dom";
+import LazyLoad from "react-lazyload";
 
 const options = {
   method: "GET",
@@ -87,11 +88,13 @@ const ExploreTopRated = () => {
                   state={{ id: element[3] }}
                   className={styles.link}
                 >
-                  <img
-                    src={element[1]}
-                    className={styles.image}
-                    alt={element[2]}
-                  />
+                  <LazyLoad>
+                    <img
+                      src={element[1]}
+                      className={styles.image}
+                      alt={element[2]}
+                    />
+                  </LazyLoad>
                 </Link>
               </div>
             );
