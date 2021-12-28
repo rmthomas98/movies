@@ -7,7 +7,6 @@ import "swiper/swiper.min.css";
 import "swiper/swiper-bundle.min.css";
 import SwiperLoader from "../SwiperLoader/SwiperLoader";
 import { Link } from "react-router-dom";
-import LazyLoad from "react-lazyload";
 
 const options = {
   method: "GET",
@@ -83,13 +82,11 @@ const PictureWinner = ({ width }) => {
                     state={{ id: element[1] }}
                     className={styles.link}
                   >
-                    <LazyLoad>
                       <img
                         src={element[0]}
                         className={styles.image}
                         alt={element[2]}
                       />
-                    </LazyLoad>
                   </Link>
                 </SwiperSlide>
               );
